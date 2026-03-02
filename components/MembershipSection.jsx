@@ -40,14 +40,7 @@ export default function MembershipSection() {
                 </p>
               </div>
             </div>
-            <div className="pt-4 border-t-2 border-[#003F68]/20">
-              <p className="text-xl sm:text-2xl font-bold text-gray-800 mb-2">
-                Fees: <span className="text-[#003F68]">₹2,900/-</span>
-              </p>
-              <p className="text-sm text-gray-500 mb-4">
-                Valid till graduation
-              </p>
-            </div>
+            
           </div>
 
           {/* OUTSTATION Card */}
@@ -75,14 +68,7 @@ export default function MembershipSection() {
                 </p>
               </div>
             </div>
-            <div className="pt-4 border-t-2 border-[#003F68]/20">
-              <p className="text-xl sm:text-2xl font-bold text-gray-800 mb-2">
-                Fees: <span className="text-[#003F68]">₹2,000/-</span>
-              </p>
-              <p className="text-sm text-gray-500 mb-4">
-                Valid for 1 year
-              </p>
-            </div>
+            
           </div>
         </div>
 
@@ -101,4 +87,5 @@ export default function MembershipSection() {
     </section>
   );
 }
+
 

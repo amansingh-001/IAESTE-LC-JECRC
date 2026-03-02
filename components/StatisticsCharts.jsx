@@ -146,6 +146,7 @@ export default function StatisticsCharts() {
   };
   // Color palette matching the image
   const colors = {
+    '2013-14': '#F7C59F', // Light apricot
     '2014-15': '#FF6B9D', // Light red/pink
     '2015-16': '#4ECDC4', // Light green/teal
     '2016-17': '#FFE66D', // Yellow
@@ -160,10 +161,10 @@ export default function StatisticsCharts() {
   };
 
   // Base numeric data (same as Outgoing/Incoming pages)
-  const years = ['2014-15', '2015-16', '2016-17', '2017-18', '2018-19', '2019-20', '2020-21', '2021-22', '2022-23', '2023-24', '2024-25'];
+  const years = ['2013-14', '2014-15', '2015-16', '2016-17', '2017-18', '2018-19', '2019-20', '2020-21', '2021-22', '2022-23', '2023-24', '2024-25'];
 
-  const outgoingCounts = [9, 2, 15, 17, 12, 1, 2, 6, 4, 8, 13];
-  const incomingCounts = [11, 8, 24, 28, 21, 3, 2, 2, 1, 9, 20];
+  const outgoingCounts = [2, 9, 2, 15, 17, 12, 1, 2, 6, 4, 8, 13];
+  const incomingCounts = [0, 11, 8, 24, 28, 21, 3, 2, 2, 1, 9, 20];
 
   const totalOutgoing = outgoingCounts.reduce((sum, v) => sum + v, 0);
   const totalIncoming = incomingCounts.reduce((sum, v) => sum + v, 0);
@@ -290,6 +291,7 @@ export default function StatisticsCharts() {
 
   // Country data for each year
   const outgoingCountries = {
+    '2013-14': ['Czech Republic', 'Bosnia'],
     '2014-15': ['Iran', 'Lebanon', 'Oman'],
     '2015-16': ['Germany', 'Iran'],
     '2016-17': ['Germany', 'Nepal', 'Kenya', 'Poland', 'Belgium', 'Czech Republic'],
@@ -304,6 +306,7 @@ export default function StatisticsCharts() {
   };
 
   const incomingCountries = {
+    '2013-14': [],
     '2014-15': ['Germany', 'Argentina', 'Tunisia', 'Turkey', 'Croatia', 'Oman', 'Thailand'],
     '2015-16': ['USA', 'Croatia', 'Belarus', 'Norway', 'Hungary', 'Germany'],
     '2016-17': ['UK', 'Spain', 'Indonesia', 'Greece', 'Kenya', 'Czech Republic', 'Vietnam', 'Saudi Arabia', 'Poland', 'Belgium', 'Thailand', 'Slovak Republic', 'Colombia'],
@@ -319,6 +322,7 @@ export default function StatisticsCharts() {
 
   // Legend items - starting from 2014-15
   const legendItems = [
+    { year: '2013-14', color: colors['2013-14'] },
     { year: '2014-15', color: colors['2014-15'] },
     { year: '2015-16', color: colors['2015-16'] },
     { year: '2016-17', color: colors['2016-17'] },
