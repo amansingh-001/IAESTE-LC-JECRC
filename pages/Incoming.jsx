@@ -99,6 +99,15 @@ export default function Incoming() {
       document.title = 'iaestelcjecrc.com';
     };
   }, []);
+
+  useEffect(() => {
+    if (window.location.hash === '#success-stories') {
+      const section = document.getElementById('success-stories');
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  }, []);
   
  const data = [
     { year: "2013-14", countries: [], students: 0 },
@@ -600,12 +609,12 @@ export default function Incoming() {
                   <p className="text-lg font-semibold text-[#003F68]">{item.year}</p>
 
                   <div
-                    className={`flex flex-wrap gap-2 mt-3 transition-all duration-150 ease-out overflow-hidden
+                    className={`flex flex-wrap gap-1.5 mt-3 pr-32 transition-all duration-150 ease-out
                       ${expanded ? "opacity-100 max-h-[1000px]" : "opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-[1000px]"}`}
                   >
                     {item.countries.length > 0 ? (
                       item.countries.map((c, i) => (
-                        <span key={i} className="bg-[#003F68] text-white text-sm px-3 py-1 rounded-full">
+                        <span key={i} className="bg-[#003F68] text-white text-xs px-2.5 py-1 rounded-full whitespace-nowrap">
                           {c}
                         </span>
                       ))
@@ -625,7 +634,7 @@ export default function Incoming() {
         </div>
       </section>
 
-      <section className="max-w-7xl mx-auto mt-16 px-6 py-12">
+      <section id="success-stories" className="max-w-7xl mx-auto mt-16 px-6 py-12">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold text-[#003F68] mb-3">Success Stories</h2>
           <p className="text-lg text-gray-600">Incoming interns — real experiences from visiting students</p>

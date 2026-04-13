@@ -12,18 +12,18 @@ const imageModules = import.meta.glob("../src/assets/images/**/*.{jpg,jpeg,png,J
 
 // --- Mappings for better display names and drive links ---
 const NAME_MAP = {
-    'Membership_Drive': 'Member Drive',
-    'Rythm_2026': 'Rythm 2026',
-    'Womens_Day': "Women's Day",
+    'Membership_Drive': 'Membership Drive 2025',
+    'Rythm_2026': 'Rhythm 2026',
+    'Womens_Day': "Women's Day 2025",
     'IAESTE X Zarurat': 'IAESTE X Zarurat',
-    'Faliciatation Ceremony': 'Felicitation Ceremony',
+    'Faliciatation Ceremony': 'Felicitation Ceremony 2025',
     'Trips': 'Trips & Fun',
     'Dinner': 'Events & Culture',
-    'Induction': 'Member Induction',
-    'Aarunaya': 'Aarunaya \'24',
-    'Rythm 2025': 'Rythm 2025',
-    'Rakhi': 'Rakhi Celebration',
-    'Orientation': 'Orientation',
+    'Induction': 'Member Induction 2025-26',
+    'Aarunaya': 'Aarunya 2025',
+    'Rythm 2025': 'Rhythm 2025',
+    'Rakhi': 'Rakhi Celebration 2025',
+    'Orientation': 'Orientation 2025',
     'Admin Session': 'Admin Session',
     'Team': 'IAESTE Team'
 };
@@ -36,13 +36,16 @@ const DRIVE_LINKS = {
 
 // --- Sub-components ---
 
+const splitEventNameAndYear = (name) => {
+    const match = name.match(/^(.*?)(\s(20\d{2}(?:-\d{2})?))$/);
+    if (!match) return { eventName: name, year: "" };
+    return { eventName: match[1], year: match[2].trim() };
+};
+
 const CategoryCard = ({ category, onSelect }) => {
-    // Dynamic font size based on name length to prevent overflow
-    const fontSizeClass = category.name.length > 20
-        ? "text-lg md:text-xl"
-        : category.name.length > 15
-            ? "text-xl md:text-2xl"
-            : "text-2xl md:text-4xl";
+    const { eventName, year } = splitEventNameAndYear(category.name);
+    const isFelicitationCard = category.id === "Faliciatation Ceremony";
+    const titleSizeClass = isFelicitationCard ? "text-lg md:text-2xl" : "text-xl md:text-3xl";
 
     return (
         <motion.div
@@ -72,9 +75,10 @@ const CategoryCard = ({ category, onSelect }) => {
 
             <div className="absolute bottom-0 left-0 w-full p-6 md:p-10 flex flex-col justify-end items-start text-white z-10">
                 <h2
-                    className={`font-black uppercase tracking-tighter transition-all duration-500 leading-none drop-shadow-2xl md:-rotate-90 md:origin-bottom-left md:translate-x-10 md:-translate-y-10 group-hover:rotate-0 group-hover:translate-x-0 group-hover:translate-y-0 whitespace-nowrap overflow-hidden text-ellipsis max-w-[280px] md:max-w-[450px] ${fontSizeClass}`}
+                    className={`font-black uppercase tracking-tight transition-all duration-500 leading-[0.95] drop-shadow-2xl md:-rotate-90 md:origin-bottom-left md:translate-x-10 md:-translate-y-10 group-hover:rotate-0 group-hover:translate-x-0 group-hover:translate-y-0 whitespace-nowrap group-hover:whitespace-normal wrap-break-word overflow-hidden text-ellipsis max-w-[270px] md:max-w-[420px] group-hover:max-w-[82%] ${titleSizeClass}`}
                 >
-                    {category.name}
+                    <span>{eventName}</span>
+                    {year && <span className="ml-2 inline-block whitespace-nowrap text-[0.78em] md:text-[0.75em] font-extrabold tracking-normal">{year}</span>}
                 </h2>
 
                 <div className="opacity-0 group-hover:opacity-100 transition-all duration-300 mt-3 translate-y-2 group-hover:translate-y-0">

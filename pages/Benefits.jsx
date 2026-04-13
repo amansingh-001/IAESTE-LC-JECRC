@@ -576,7 +576,7 @@ export default function Benefits() {
           <div className="relative z-10 text-center">
             {/* Heading */}
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#003F68] mb-6 leading-tight">
-              Begin Your Growth Story
+              IAESTE for All
             </h2>
 
             {/* Description */}
