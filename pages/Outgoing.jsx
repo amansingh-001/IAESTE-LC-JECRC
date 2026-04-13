@@ -107,8 +107,7 @@ export default function Outgoing() {
       location: "Jaipur, India",
       testimonial:
 "I completed a remote IAESTE internship with IAESTE Burundi, focusing on Full Stack Web Development. During this period, I developed a website using React, Tailwind CSS, and Node.js, which enhanced my technical expertise, collaboration skills, and understanding of global work culture. This experience was truly enriching and one of the most rewarding chapters of my journey.",
-      linkedin: "#",
-      email: "#",
+      linkedin: "https://www.linkedin.com/in/vikram-saini-0b35ab207?utm_source=share_via&utm_content=profile&utm_medium=member_android",
       image:
         "https://www.iaestelcjecrc.com/assets/img/avatars/Vikram.jpeg"
     },
@@ -117,8 +116,7 @@ export default function Outgoing() {
       name: "Aaditya Mittal",
       location: "Jaipur, India",
       testimonial:"My internship at the Iran Institute of Science & Technology was an enriching experience that strengthened my academic and personal growth. Under the guidance of Ms. Marzieh Davoodabadi, I worked on Twitter Bot detection, evaluating datasets using existing models and analyzing their performance. I gained real research exposure, technical skills, and cultural understanding. I am grateful to IAESTE LC JECRC and JECRC University for this global opportunity and seamless support. This internship remains a valuable milestone in my learning journey.",
-        linkedin: "#",
-      email: "#",
+        linkedin: "https://www.linkedin.com/in/aadityamittal01?utm_source=share_via&utm_content=profile&utm_medium=member_android",
       image:
         "https://www.iaestelcjecrc.com/assets/img/avatars/Aaditya.jpeg"
     },
@@ -128,8 +126,7 @@ export default function Outgoing() {
       location: "Jaipur, India",
       testimonial:
         "My internship at IAESTE Tanzania (NECTA) was one of the most enriching experiences of my journey so far. I had the opportunity to work on the Billing System of NECTA, where I was involved in improving and developing features using C# and the .NET Framework.",
-      linkedin: "#",
-      email: "#",
+      linkedin: "https://www.linkedin.com/in/palak-kumari-b855a521b?utm_source=share_via&utm_content=profile&utm_medium=member_android",
       image:
         "https://www.iaestelcjecrc.com/assets/img/avatars/Palak.jpeg"
     },
@@ -139,8 +136,7 @@ export default function Outgoing() {
       location: "Jaipur, India",
       testimonial:
         "During my internship, I worked on an Artificial Intelligence and Machine Learning project focused on drug discovery, which allowed me to enhance my technical knowledge and research skills. Along with professional learning, I had the opportunity to explore beautiful places like Rio de Janeiro, experiencing the warmth and vibrant culture of Brazil.",
-      linkedin: "#",
-      email: "#",
+      linkedin: "https://www.linkedin.com/in/nakul-kandira-914568286?utm_source=share_via&utm_content=profile&utm_medium=member_android",
       image:
         "https://www.iaestelcjecrc.com/assets/img/avatars/Nakul.jpeg"
     },
@@ -150,8 +146,7 @@ export default function Outgoing() {
       location: "Jaipur, India",
       testimonial:
         "My internship with Universidad Santo Tomás, Tunja (Colombia) was a highly enriching experience. I worked on the DTI – Tunja smart-tourism project, creating 3D character models and WebAR prototypes using Blender and 8th Wall. I gained practical skills in immersive media and cultural storytelling. I am grateful to Prof. William Álvarez and IAESTE India LC JECRC for their support, which inspires my future work in XR and digital heritage.",
-      linkedin: "#",
-      email: "#",
+      linkedin: "https://www.linkedin.com/in/priyanshsingh211?utm_source=share_via&utm_content=profile&utm_medium=member_android",
       image:
         "https://www.iaestelcjecrc.com/assets/img/avatars/Priyansh.jpeg"
     }
@@ -428,13 +423,13 @@ export default function Outgoing() {
                   </div>
                   <p className="text-lg font-semibold text-[#003F68]">{item.year}</p>
                   <div
-                    className={`flex flex-wrap gap-2 mt-3 transition-all duration-180 ease-out overflow-hidden ${
+                    className={`flex flex-wrap gap-1.5 mt-3 pr-32 transition-all duration-180 ease-out ${
                       open ? "opacity-100 max-h-[1000px]" : "opacity-0 max-h-0"
                     } md:group-hover:opacity-100 md:group-hover:max-h-[1000px]`}
                   >
                     {item.countries.length > 0 ? (
                       item.countries.map((c, idx) => (
-                        <span key={idx} className="bg-[#003F68] text-white text-sm px-3 py-1 rounded-full">
+                        <span key={idx} className="bg-[#003F68] text-white text-xs px-2.5 py-1 rounded-full whitespace-nowrap">
                           {c}
                         </span>
                       ))
@@ -487,8 +482,7 @@ export default function Outgoing() {
 
                       <p className="text-base text-gray-700 leading-relaxed mb-6 flex-1">{story.testimonial}</p>
                       <div className="flex flex-col sm:flex-row gap-3 mb-2 mt-4 md:mt-0 justify-center md:justify-start">
-                        <a href={story.linkedin} onClick={stopPropagation} className="bg-[#003F68] text-white px-5 py-2 rounded-lg text-sm font-medium hover:bg-[#005a8f] transition text-center">Linkedin</a>
-                        <a href={`mailto:${story.email}`} onClick={stopPropagation} className="bg-[#003F68] text-white px-5 py-2 rounded-lg text-sm font-medium hover:bg-[#005a8f] transition text-center">Email</a>
+                        <a href={story.linkedin} target="_blank" rel="noreferrer" onClick={stopPropagation} className="bg-[#003F68] text-white px-5 py-2 rounded-lg text-sm font-medium hover:bg-[#005a8f] transition text-center">Linkedin</a>
                       </div>
                       <div className="flex gap-2 justify-end mt-auto">
                         <button onClick={prevCard} className="bg-gray-200 hover:bg-gray-300 text-gray-700 p-2 rounded-lg transition-all duration-300 hover:scale-110" aria-label="Previous">
@@ -547,8 +541,7 @@ export default function Outgoing() {
 
                       <p className="text-base text-gray-700 leading-relaxed mb-6 flex-1">{story.testimonial}</p>
                       <div className="flex flex-col sm:flex-row gap-3 mb-2 mt-4 md:mt-0 justify-center md:justify-start">
-                        <a href={story.linkedin} onClick={stopPropagation} className="bg-[#003F68] text-white px-5 py-2 rounded-lg text-sm font-medium hover:bg-[#005a8f] transition text-center">Linkedin</a>
-                        <a href={`mailto:${story.email}`} onClick={stopPropagation} className="bg-[#003F68] text-white px-5 py-2 rounded-lg text-sm font-medium hover:bg-[#005a8f] transition text-center">Email</a>
+                        <a href={story.linkedin} target="_blank" rel="noreferrer" onClick={stopPropagation} className="bg-[#003F68] text-white px-5 py-2 rounded-lg text-sm font-medium hover:bg-[#005a8f] transition text-center">Linkedin</a>
                       </div>
                       <div className="flex gap-2 justify-end mt-auto">
                         <button onClick={prevBottomCard} className="bg-gray-200 hover:bg-gray-300 text-gray-700 p-2 rounded-lg transition-all duration-300 hover:scale-110" aria-label="Previous bottom">

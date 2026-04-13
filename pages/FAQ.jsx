@@ -102,7 +102,7 @@ const FAQ = () => {
                         transition={{ duration: 0.6 }}
                     >
                         <h1 className="text-4xl md:text-6xl font-black text-[#0B3D59] uppercase tracking-tighter leading-tight mb-3">
-                            Help <span className="text-blue-500">Center</span>
+                            Help <span className="text-[#0B3D59]">Center</span>
                         </h1>
                         <p className="text-[#0B3D59]/60 text-sm md:text-lg font-black uppercase tracking-[0.3em] mb-8">
                             Legacy in every answer
