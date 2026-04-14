@@ -132,26 +132,30 @@ export default function Footer() {
           </div>
 
           {/* Quick Links Section */}
-          <FooterSection title="Quick Links" className="text-left">
-            {quickLinks.map((link) => (
-              <li key={link.to}>
-                <FooterLink to={link.to} isExternal={link.isExternal}>
-                  {link.label}
-                </FooterLink>
-              </li>
-            ))}
-          </FooterSection>
+          <nav aria-label="Footer Quick Links">
+            <FooterSection title="Quick Links" className="text-left">
+              {quickLinks.map((link) => (
+                <li key={link.to}>
+                  <FooterLink to={link.to} isExternal={link.isExternal}>
+                    {link.label}
+                  </FooterLink>
+                </li>
+              ))}
+            </FooterSection>
+          </nav>
 
           {/* Resources Section */}
-          <FooterSection title="Student" className="text-left">
-            {resources.map((resource) => (
-              <li key={resource.to}>
-                <FooterLink to={resource.to} isExternal={resource.isExternal}>
-                  {resource.label}
-                </FooterLink>
-              </li>
-            ))}
-          </FooterSection>
+          <nav aria-label="Footer Student Resources">
+            <FooterSection title="Student" className="text-left">
+              {resources.map((resource) => (
+                <li key={resource.to}>
+                  <FooterLink to={resource.to} isExternal={resource.isExternal}>
+                    {resource.label}
+                  </FooterLink>
+                </li>
+              ))}
+            </FooterSection>
+          </nav>
 
           {/* Contact Info Section */}
           <div className="text-left">

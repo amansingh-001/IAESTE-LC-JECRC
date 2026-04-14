@@ -1,0 +1,22 @@
+{
+  "name": "IAESTE LC JECRC",
+  "short_name": "IAESTE JECRC",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#003F68",
+  "description": "International Internships & Student Exchange Programs at JECRC University, Jaipur.",
+  "icons": [
+    {
+      "src": "/IaesteLogo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/IaesteLogo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

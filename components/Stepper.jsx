@@ -200,10 +200,6 @@ const stepVariants = {
   })
 };
 
-export function Step({ children }) {
-  return <div>{children}</div>;
-}
-
 function StepIndicator({ step, currentStep, onClickStep, disableStepIndicators }) {
   const status = currentStep === step ? 'active' : currentStep < step ? 'inactive' : 'complete';
 
