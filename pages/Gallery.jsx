@@ -8,7 +8,7 @@ import OpenInNewIcon from "@mui/icons-material/OpenInNew";
  * Dynamic scan for images from the assets folder.
  * Vite's import.meta.glob allows us to find all images without manual imports.
  */
-const imageModules = import.meta.glob("../src/assets/images/**/*.{jpg,jpeg,png,JPG,JPEG,PNG,webp,svg}", { eager: true });
+const imageModules = import.meta.glob("../src/assets/images/**/*.{jpg,jpeg,png,JPG,JPEG,PNG,webp,svg,avif,AVIF}", { eager: true });
 
 // --- Mappings for better display names and drive links ---
 const NAME_MAP = {
