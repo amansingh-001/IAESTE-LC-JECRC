@@ -51,7 +51,6 @@ const Contact = () => {
         if (SERVICE_ID === "service_sandbox" || PUBLIC_KEY === "public_key_sandbox") {
             // Simulate success for demonstration/development if keys are not set
             setTimeout(() => {
-                console.log("Simulating EmailJS send with data:", form);
                 alert("Message sent! (Simulation Mode: Update EmailJS keys in Contact.jsx to send real emails)");
                 setForm({ name: "", email: "", phone: "", message: "" });
                 setIsSubmitting(false);
@@ -61,11 +60,9 @@ const Contact = () => {
 
         emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, PUBLIC_KEY)
             .then((result) => {
-                console.log(result.text);
                 alert("Thank you! Your message has been sent.");
                 setForm({ name: "", email: "", phone: "", message: "" });
             }, (error) => {
-                console.log(error.text);
                 alert("Failed to send message. Please check your internet connection or EmailJS configuration.");
             })
             .finally(() => {
@@ -114,7 +111,7 @@ const Contact = () => {
         {
             icon: <EmailIcon />,
             title: "Email",
-            content: "support@iaestelcjecrc.com",
+            content: "head.hra@iaestelcjecrc.com",
             subContent: "",
             color: "#0B3D59"
         }
@@ -123,19 +120,19 @@ const Contact = () => {
     const socialLinks = [
         {
             icon: <LinkedInIcon />,
-            href: "https://linkedin.com",
+            href: "https://www.linkedin.com/company/iaestelcjecrc/",
             color: "#0077B5",
             name: "LinkedIn"
         },
         {
             icon: <InstagramIcon />,
-            href: "https://instagram.com",
+            href: "https://www.instagram.com/iaestelcjecrc/",
             color: "#E4405F",
             name: "Instagram"
         },
         {
             icon: <FacebookIcon />,
-            href: "https://facebook.com",
+            href: "https://www.facebook.com/IAESTEIndiaLCJECRC",
             color: "#1877F2",
             name: "Facebook"
         }

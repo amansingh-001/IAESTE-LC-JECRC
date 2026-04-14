@@ -11,7 +11,7 @@ export default function LoadingScreen({ onLoadingComplete }) {
       setTimeout(() => {
         onLoadingComplete();
       }, 500); // Wait for zoom-out animation to complete
-    }, 1500); // Show loading screen for 1.5 seconds
+    }, 800); // Show loading screen for 800ms (fast transition)
 
     return () => clearTimeout(timer);
   }, [onLoadingComplete]);

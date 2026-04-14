@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom';
 
 export default function MembershipSection() {
   return (
-    <section className="bg-white py-12 sm:py-16 lg:py-20">
+    <section className="bg-white py-12 sm:py-16 lg:py-20" aria-labelledby="membership-section-title">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10 sm:mb-12">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-800 mb-4">
+          <h2 id="membership-section-title" className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-800 mb-4 tracking-tight">
             Membership
           </h2>
-          <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto font-medium">
             Choose the membership plan that suits you and join our global community.
           </p>
         </div>
@@ -27,8 +27,8 @@ export default function MembershipSection() {
                 <svg className="w-5 h-5 text-[#003F68] mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
-                <p className="text-gray-700 text-sm sm:text-base">
-                  Valid for students of <span className="font-semibold text-[#003F68]">JECRC University</span>
+                <p className="text-[#003F68] text-sm sm:text-base font-semibold">
+                  Valid for students of JECRC University
                 </p>
               </div>
               <div className="flex items-start">
@@ -55,8 +55,8 @@ export default function MembershipSection() {
                 <svg className="w-5 h-5 text-[#003F68] mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
-                <p className="text-gray-700 text-sm sm:text-base">
-                  Valid for students other than <span className="font-semibold text-[#003F68]">JECRC University</span>
+                <p className="text-[#003F68] text-sm sm:text-base font-semibold ">
+                  Valid for students other than JECRC University
                 </p>
               </div>
               <div className="flex items-start">

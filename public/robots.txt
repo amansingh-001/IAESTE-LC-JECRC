@@ -1,3 +1,22 @@
+# robots.txt for IAESTE LC JECRC
+# https://www.iaestelcjecrc.com
+
 User-agent: *
 Allow: /
+
+# Sitemap
 Sitemap: https://www.iaestelcjecrc.com/sitemap.xml
+
+# Disallow admin/member portal paths (different domain)
+# Member portal is at member.iaestelcjecrc.com
+
+# Allow all search engine crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Crawl-delay for polite crawling
+User-agent: *
+Crawl-delay: 1

@@ -7,11 +7,10 @@
   color: #1a1a1a;
   background-color: #ffffff;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+/* body styles */
 
 body {
   margin: 0;
@@ -49,5 +48,3 @@ body {
 .animate-fade-in-down {
   animation: fadeInDown 0.3s ease-out;
 }
-
-
