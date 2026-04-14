@@ -63,42 +63,6 @@ function Counter({ target = 0, duration = 2000, play = true, className = "" }) {
 }
 
 export default function Incoming() {
-  // SEO: Update document title and meta tags
-  useEffect(() => {
-    document.title = "Incoming Exchange Programs | IAESTE LC JECRC";
-    
-    // Update or create meta description
-    let metaDescription = document.querySelector('meta[name="description"]');
-    if (!metaDescription) {
-      metaDescription = document.createElement('meta');
-      metaDescription.setAttribute('name', 'description');
-      document.head.appendChild(metaDescription);
-    }
-    metaDescription.setAttribute('content', 'Explore IAESTE incoming exchange programs at JECRC. View statistics, success stories, and international interns hosted at our university.');
-    
-    // Update or create Open Graph tags
-    const ogTags = {
-      'og:title': 'Incoming Exchange Programs | IAESTE LC JECRC',
-      'og:description': 'Explore IAESTE incoming exchange programs at JECRC. View statistics, success stories, and international interns hosted at our university.',
-      'og:type': 'website',
-      'og:url': window.location.href
-    };
-    
-    Object.entries(ogTags).forEach(([property, content]) => {
-      let tag = document.querySelector(`meta[property="${property}"]`);
-      if (!tag) {
-        tag = document.createElement('meta');
-        tag.setAttribute('property', property);
-        document.head.appendChild(tag);
-      }
-      tag.setAttribute('content', content);
-    });
-
-    // Cleanup function to restore original title if needed
-    return () => {
-      document.title = 'iaestelcjecrc.com';
-    };
-  }, []);
 
   useEffect(() => {
     if (window.location.hash === '#success-stories') {
@@ -388,7 +352,7 @@ export default function Incoming() {
       try {
         chartObserver.disconnect();
       } catch (e) {
-        console.log("error",e)
+        // Silent error for observer disconnect
       }
     };
   }, []);

@@ -305,7 +305,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-20">
 
           {/* Logo */}
-          <Link to="/" className="flex items-center group -ml-8 lg:-ml-12">
+          <Link to="/" className="flex items-center group -ml-8 lg:-ml-12" aria-label="IAESTE JECRC Home">
             <img
               src={logo}
               alt="IAESTE Logo"
@@ -390,6 +390,9 @@ export default function Navbar() {
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="text-gray-700 hover:text-[#003F68] focus:outline-none p-2 transition-all duration-300 hover:scale-110"
+              aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={isMobileMenuOpen}
+              aria-controls="mobile-menu"
             >
               <HamburgerIcon isOpen={isMobileMenuOpen} />
             </button>
@@ -406,7 +409,7 @@ export default function Navbar() {
       )}
 
       {/* Mobile Slide-in Menu */}
-      <div className={`md:hidden fixed top-20 right-0 h-[calc(100vh-5rem)] w-80 max-w-[85vw] bg-white shadow-2xl z-50 transform transition-transform duration-300 ease-out ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+      <div id="mobile-menu" className={`md:hidden fixed top-20 right-0 h-[calc(100vh-5rem)] w-80 max-w-[85vw] bg-white shadow-2xl z-50 transform transition-transform duration-300 ease-out ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}>
         <div className="flex flex-col h-full overflow-y-auto bg-gradient-to-b from-white via-gray-50/30 to-white">
           <div className="flex-1 px-3 py-6">

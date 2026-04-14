@@ -289,8 +289,8 @@ export default function StatisticsCharts() {
     ...lineOptions
   }), [lineOptions]);
 
-  // Country data for each year
-  const outgoingCountries = {
+  // Country data for each year - memoized for performance
+  const outgoingCountries = React.useMemo(() => ({
     '2013-14': ['Czech Republic', 'Bosnia'],
     '2014-15': ['Iran', 'Lebanon', 'Oman'],
     '2015-16': ['Germany', 'Iran'],
@@ -303,9 +303,9 @@ export default function StatisticsCharts() {
     '2022-23': ['Various'],
     '2023-24': ['UAE', 'Tanzania', 'Iran', 'Kenya', 'Canada', 'Oman'],
     '2024-25': ['Vietnam', 'Iran', 'Tanzania', 'Brazil', 'Oman', 'Kazakhstan', 'Ghana'],
-  };
+  }), []);
 
-  const incomingCountries = {
+  const incomingCountries = React.useMemo(() => ({
     '2013-14': [],
     '2014-15': ['Germany', 'Argentina', 'Tunisia', 'Turkey', 'Croatia', 'Oman', 'Thailand'],
     '2015-16': ['USA', 'Croatia', 'Belarus', 'Norway', 'Hungary', 'Germany'],
@@ -318,7 +318,7 @@ export default function StatisticsCharts() {
     '2022-23': ['Iran'],
     '2023-24': ['Tunisia', 'Ghana', 'Tanzania', 'Iran', 'Palestine', 'Belarus'],
     '2024-25': ['Mexico', 'Canada', 'Austria', 'Norway', 'Czech Republic', 'Palestine', 'Tunisia', 'Jordan', 'Spain', 'Iran', 'Bangladesh'],
-  };
+  }), []);
 
   // Legend items - starting from 2014-15
   const legendItems = [

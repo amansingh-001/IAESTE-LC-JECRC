@@ -2,9 +2,20 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Carousel from '../components/Carousel';
-import StatisticsCharts from '../components/StatisticsCharts';
-import HowToApply from '../components/HowToApply';
-import Stepper, { Step } from '../components/Stepper';
+import Step from '../components/Step';
+import { Suspense, lazy } from 'react';
+
+// Lazy load heavy below-the-fold components
+const StatisticsCharts = lazy(() => import('../components/StatisticsCharts'));
+const Stepper = lazy(() => import('../components/Stepper'));
+
+// Optimized loading placeholder for lazy sections
+const SectionLoader = () => (
+  <div className="w-full py-20 flex flex-col items-center justify-center space-y-4 bg-gray-50/50 rounded-3xl animate-pulse">
+    <div className="w-16 h-16 border-4 border-[#003F68]/20 border-t-[#003F68] rounded-full animate-spin"></div>
+    <p className="text-[#003F68] font-semibold text-sm tracking-widest uppercase">Initializing Section...</p>
+  </div>
+);
 import homeImage1 from '../src/assets/images/home1.avif';
 import homeImage2 from '../src/assets/images/home2.avif';
 import homeImage3 from '../src/assets/images/home3.avif';
@@ -149,14 +160,16 @@ export default function Home() {
 
   return (
     <div>
-      <Carousel slides={slides} />
-      
+      <section aria-label="Welcome Carousel">
+        <Carousel slides={slides} />
+      </section>
+
       {/* Who we are & Why IAESTE Section */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-2 md:pt-8 lg:pt-10 xl:pt-12 pb-4 sm:pb-6 lg:pb-8 -mt-16 md:mt-0">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-2 md:pt-8 lg:pt-10 xl:pt-12 pb-4 sm:pb-6 lg:pb-8 -mt-16 md:mt-0" aria-labelledby="who-we-are-title">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 items-center">
           {/* Who we are Section - Left */}
           <div className="space-y-8">
-            <h2 className="text-4xl sm:text-5xl font-bold text-gray-800 tracking-tight">Who we are</h2>
+            <h1 id="who-we-are-title" className="text-4xl sm:text-5xl font-bold text-gray-800 tracking-tight">Who we are</h1>
             
             <div className="space-y-6 text-gray-700 leading-relaxed">
               <p className="text-base sm:text-lg font-normal">
@@ -176,7 +189,7 @@ export default function Home() {
             <div className="pt-4 relative overflow-hidden rounded-lg border-4 border-[#003F68] shadow-xl w-full" style={{ minHeight: '300px', height: '400px' }}>
               <img 
                 src={homeImage1} 
-                alt="IAESTE LC JECRC" 
+                alt="IAESTE LC JECRC team and activities" 
                 className="w-full h-full object-contain"
                 loading="lazy"
                 decoding="async"
@@ -258,14 +271,14 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
       {/* Membership Section */}
-      <div className="bg-white pt-8 sm:pt-12 pb-4 sm:pb-6">
+      <section className="bg-white pt-8 sm:pt-12 pb-4 sm:pb-6" aria-labelledby="membership-title">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
           <div className="text-center mb-8 sm:mb-10">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-800 mb-3 tracking-tight">
+            <h2 id="membership-title" className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-800 mb-3 tracking-tight">
               Membership
             </h2>
             <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto">
@@ -381,13 +394,13 @@ export default function Home() {
             </Link>
           </div>
         </div>
-      </div>
+      </section>
 
       {/* How to Apply Section 
        <HowToApply />
       */}
       
-      <div className="bg-gradient-to-br from-gray-50 via-white to-gray-50 py-6 sm:py-8">
+      <section className="bg-gradient-to-br from-gray-50 via-white to-gray-50 py-6 sm:py-8" aria-labelledby="apply-title">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
           <motion.div
@@ -397,7 +410,7 @@ export default function Home() {
             transition={{ duration: 0.6, type: "spring", stiffness: 100 }}
             className="text-center mb-3 sm:mb-4"
           >
-            <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-gray-800 mb-3 tracking-tight" style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>
+            <h2 id="apply-title" className="text-xl sm:text-2xl lg:text-3xl font-semibold text-gray-800 mb-3 tracking-tight" style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>
               HOW TO APPLY FOR AN IAESTE INTERNSHIP
             </h2>
             <p className="text-sm sm:text-base text-gray-600 font-normal" style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>
@@ -406,75 +419,75 @@ export default function Home() {
           </motion.div>
 
           {/* Stepper Component */}
-          <Stepper
-            initialStep={1}
-            // onStepChange={(step) => {
-            //   console.log(`Step ${step}`);
-            // }}
-            // onFinalStepCompleted={() => console.log("All steps completed!")}
-            backButtonText="Previous"
-            nextButtonText="Next"
-          >
-            <Step>
-              <div className="text-center py-1">
-                <div className="flex justify-center mb-2">
-                  <div className="w-12 h-12 bg-[#003F68]/10 rounded-full flex items-center justify-center">
-                    <svg className="w-6 h-6 text-[#003F68]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
-                    </svg>
+          <Suspense fallback={<SectionLoader />}>
+            <Stepper
+              initialStep={1}
+              backButtonText="Previous"
+              nextButtonText="Next"
+            >
+              <Step>
+                <div className="text-center py-1">
+                  <div className="flex justify-center mb-2">
+                    <div className="w-12 h-12 bg-[#003F68]/10 rounded-full flex items-center justify-center">
+                      <svg className="w-6 h-6 text-[#003F68]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
+                      </svg>
+                    </div>
                   </div>
+                  <h3 className="text-base sm:text-lg font-semibold text-gray-800 mb-1" style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>
+                    Click on "Join Membership"
+                  </h3>
+                  <p className="text-xs sm:text-sm text-gray-600 leading-relaxed max-w-md mx-auto" style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>
+                    You will get to see it in the starting of the website. Look for the "Join Membership" button in the navigation bar at the top of the page.
+                  </p>
                 </div>
-                <h3 className="text-base sm:text-lg font-semibold text-gray-800 mb-1" style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>
-                  Click on "Join Membership"
-                </h3>
-                <p className="text-xs sm:text-sm text-gray-600 leading-relaxed max-w-md mx-auto" style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>
-                  You will get to see it in the starting of the website. Look for the "Join Membership" button in the navigation bar at the top of the page.
-                </p>
-              </div>
-            </Step>
-            <Step>
-              <div className="text-center py-1">
-                <div className="flex justify-center mb-2">
-                  <div className="w-12 h-12 bg-[#003F68]/10 rounded-full flex items-center justify-center">
-                    <svg className="w-6 h-6 text-[#003F68]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
-                    </svg>
+              </Step>
+              <Step>
+                <div className="text-center py-1">
+                  <div className="flex justify-center mb-2">
+                    <div className="w-12 h-12 bg-[#003F68]/10 rounded-full flex items-center justify-center">
+                      <svg className="w-6 h-6 text-[#003F68]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                      </svg>
+                    </div>
                   </div>
+                  <h3 className="text-base sm:text-lg font-semibold text-gray-800 mb-1" style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>
+                    Pay the Membership Fee
+                  </h3>
+                  <p className="text-xs sm:text-sm text-gray-600 leading-relaxed max-w-md mx-auto" style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>
+                    Submit the fee through our secure online payment portal. Choose between INSTATION or OUTSTATION membership based on your university.
+                  </p>
                 </div>
-                <h3 className="text-base sm:text-lg font-semibold text-gray-800 mb-1" style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>
-                  Pay the Membership Fee
-                </h3>
-                <p className="text-xs sm:text-sm text-gray-600 leading-relaxed max-w-md mx-auto" style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>
-                  Submit the fee through our secure online payment portal. Choose between INSTATION or OUTSTATION membership based on your university.
-                </p>
-              </div>
-            </Step>
-            <Step>
-              <div className="text-center py-1">
-                <div className="flex justify-center mb-2">
-                  <div className="w-12 h-12 bg-[#003F68]/10 rounded-full flex items-center justify-center">
-                    <svg className="w-6 h-6 text-[#4c6b7f]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
+              </Step>
+              <Step>
+                <div className="text-center py-1">
+                  <div className="flex justify-center mb-2">
+                    <div className="w-12 h-12 bg-[#003F68]/10 rounded-full flex items-center justify-center">
+                      <svg className="w-6 h-6 text-[#4c6b7f]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                    </div>
                   </div>
+                  <h3 className="text-base sm:text-lg font-semibold text-gray-800 mb-1" style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>
+                    Get Full Access
+                  </h3>
+                  <p className="text-xs sm:text-sm text-gray-600 leading-relaxed max-w-md mx-auto" style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>
+                    Receive access to all the internship offers and application forms. Start exploring international opportunities and apply for internships that match your skills and interests.
+                  </p>
                 </div>
-                <h3 className="text-base sm:text-lg font-semibold text-gray-800 mb-1" style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>
-                  Get Full Access
-                </h3>
-                <p className="text-xs sm:text-sm text-gray-600 leading-relaxed max-w-md mx-auto" style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>
-                  Receive access to all the internship offers and application forms. Start exploring international opportunities and apply for internships that match your skills and interests.
-                </p>
-              </div>
-            </Step>
-          </Stepper>
+              </Step>
+            </Stepper>
+          </Suspense>
         </div>
-      </div>
+      </section>
 
       {/* Statistics Charts Section */}
-      <StatisticsCharts />
+      <Suspense fallback={<SectionLoader />}>
+        <StatisticsCharts />
+      </Suspense>
 
       {/* Testimonials Section */}
-      <div className="bg-gray-50 py-10 sm:py-12 lg:py-14">
+      <section className="bg-gray-50 py-10 sm:py-12 lg:py-14" aria-labelledby="testimonials-title">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
           <motion.div
@@ -485,7 +498,7 @@ export default function Home() {
             className="text-center mb-8 sm:mb-10"
           >
             <p className="text-sm font-semibold text-[#003F68] uppercase tracking-wide">Stories</p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mt-2">What Our Students Say</h2>
+            <h2 id="testimonials-title" className="text-3xl sm:text-4xl font-bold text-gray-900 mt-2">What Our Students Say</h2>
             <p className="text-base sm:text-lg text-gray-600 mt-2 max-w-2xl mx-auto">
               Real experiences from students who have transformed their careers through IAESTE internships.
             </p>
@@ -573,6 +586,8 @@ export default function Home() {
                       src={testimonial.image}
                       alt={testimonial.name}
                       className="w-12 h-12 rounded-full object-cover border-2 border-[#003F68]"
+                      loading="lazy"
+                      decoding="async"
                       onError={(e) => {
                         e.target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(testimonial.name)}&background=003F68&color=fff&size=128`;
                       }}
@@ -590,7 +605,7 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 }
