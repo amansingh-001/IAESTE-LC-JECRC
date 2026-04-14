@@ -4,6 +4,7 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import LoadingScreen from '../components/LoadingScreen';
 import SEOHead from '../components/SEOHead';
+import ScrollToTop from '../components/ScrollToTop'
 
 // Lazy load heavy components for better code splitting
 const Home = lazy(() => import('../pages/Home'));
@@ -48,8 +49,9 @@ export default function App() {
         <div className="flex flex-col min-h-screen">
           <SEOHead />
           <Navbar />
-          <div id="main-content" className="flex-grow">
+          <div id="main-content" className="grow">
             <Suspense fallback={<PageLoader />}>
+              <ScrollToTop />
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/about" element={<About />} />
