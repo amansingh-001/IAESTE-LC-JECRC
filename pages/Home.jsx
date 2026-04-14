@@ -5,7 +5,12 @@ import Carousel from '../components/Carousel';
 import StatisticsCharts from '../components/StatisticsCharts';
 import HowToApply from '../components/HowToApply';
 import Stepper, { Step } from '../components/Stepper';
-import homeImage from '../src/assets/images/home.jpg';
+import homeImage1 from '../src/assets/images/home1.avif';
+import homeImage2 from '../src/assets/images/home2.avif';
+import homeImage3 from '../src/assets/images/home3.avif';
+import homeImage4 from '../src/assets/images/home4.avif';
+import homeImage5 from '../src/assets/images/home5.avif';
+import homeImage6 from '../src/assets/images/home6.avif';
 
 export default function Home() {
   // Carousel slides data with home image repeated
@@ -17,7 +22,7 @@ export default function Home() {
       description: "Empowering students through international exchange programs and professional development opportunities worldwide.",
       buttonText: "Apply Now",
       buttonLink: "/apply",
-      backgroundImage: homeImage,
+      backgroundImage: homeImage1,
       fallbackGradient: "linear-gradient(135deg, #003F68 0%, #005a8f 100%)",
     },
     {
@@ -27,7 +32,7 @@ export default function Home() {
       description: "Empowering students through international exchange programs and professional development opportunities worldwide.",
       buttonText: "Apply Now",
       buttonLink: "/apply",
-      backgroundImage: homeImage,
+      backgroundImage: homeImage2,
       fallbackGradient: "linear-gradient(135deg, #003F68 0%, #005a8f 100%)",
     },
     {
@@ -37,7 +42,7 @@ export default function Home() {
       description: "Empowering students through international exchange programs and professional development opportunities worldwide.",
       buttonText: "Apply Now",
       buttonLink: "/apply",
-      backgroundImage: homeImage,
+      backgroundImage: homeImage3,
       fallbackGradient: "linear-gradient(135deg, #003F68 0%, #005a8f 100%)",
     },
     {
@@ -47,7 +52,7 @@ export default function Home() {
       description: "Empowering students through international exchange programs and professional development opportunities worldwide.",
       buttonText: "Apply Now",
       buttonLink: "/apply",
-      backgroundImage: homeImage,
+      backgroundImage: homeImage4,
       fallbackGradient: "linear-gradient(135deg, #003F68 0%, #005a8f 100%)",
     },
     {
@@ -57,7 +62,17 @@ export default function Home() {
       description: "Empowering students through international exchange programs and professional development opportunities worldwide.",
       buttonText: "Apply Now",
       buttonLink: "/apply",
-      backgroundImage: homeImage,
+      backgroundImage: homeImage5,
+      fallbackGradient: "linear-gradient(135deg, #003F68 0%, #005a8f 100%)",
+    },
+    {
+      id: 6,
+      title: "Welcome to IAESTE LC JECRC",
+      subtitle: "Work. Experience. Discover.",
+      description: "Empowering students through international exchange programs and professional development opportunities worldwide.",
+      buttonText: "Apply Now",
+      buttonLink: "/apply",
+      backgroundImage: homeImage6,
       fallbackGradient: "linear-gradient(135deg, #003F68 0%, #005a8f 100%)",
     },
   ];
@@ -160,7 +175,7 @@ export default function Home() {
             {/* Single Image Display */}
             <div className="pt-4 relative overflow-hidden rounded-lg border-4 border-[#003F68] shadow-xl w-full" style={{ minHeight: '300px', height: '400px' }}>
               <img 
-                src={homeImage} 
+                src={homeImage1} 
                 alt="IAESTE LC JECRC" 
                 className="w-full h-full object-contain"
                 loading="lazy"
