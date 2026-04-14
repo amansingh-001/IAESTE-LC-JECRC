@@ -102,8 +102,8 @@ const FAQ = () => {
                         transition={{ duration: 0.6 }}
                     >
                         
-                    <h1 className="text-2xl md:text-6xl font-black text-[#11577f] uppercase tracking-tighter leading-tight mb-3">
-                    Common<span className="ml-4 text-[#11577f]">FAQ's</span>
+                    <h1 className="text-xl md:text-6xl font-black text-[#11577f] uppercase tracking-tighter leading-tight mb-3">
+                    FREQUENTLY ASKED QUESTIONS
                     </h1>
 
                     <p className="text-[#0B3D59]/60 text-sm md:text-lg font-black uppercase tracking-[0.3em] mb-8">

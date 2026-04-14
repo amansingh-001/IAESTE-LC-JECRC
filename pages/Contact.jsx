@@ -115,7 +115,7 @@ const Contact = () => {
         {
             icon: <EmailIcon />,
             title: "Email",
-            content: "support@iaestelcjecrc.com",
+            content: "head.hra@iaestelcjecrc.com",
             subContent: "",
             color: "#0B3D59"
         }
@@ -124,19 +124,19 @@ const Contact = () => {
     const socialLinks = [
         {
             icon: <LinkedInIcon />,
-            href: "https://linkedin.com",
+            href: "https://www.linkedin.com/company/iaestelcjecrc/",
             color: "#0077B5",
             name: "LinkedIn"
         },
         {
             icon: <InstagramIcon />,
-            href: "https://instagram.com",
+            href: "https://www.instagram.com/iaestelcjecrc/",
             color: "#E4405F",
             name: "Instagram"
         },
         {
             icon: <FacebookIcon />,
-            href: "https://facebook.com",
+            href: "https://www.facebook.com/IAESTEIndiaLCJECRC",
             color: "#1877F2",
             name: "Facebook"
         }

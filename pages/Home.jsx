@@ -11,6 +11,8 @@ import homeImage3 from '../src/assets/images/home3.avif';
 import homeImage4 from '../src/assets/images/home4.avif';
 import homeImage5 from '../src/assets/images/home5.avif';
 import homeImage6 from '../src/assets/images/home6.avif';
+import WhoWeAreIMG from '../src/assets/images/whoWeAreCoverImage.avif';
+import MembershipSection from '../components/MembershipSection';
 
 export default function Home() {
   // Carousel slides data with home image repeated
@@ -156,7 +158,7 @@ export default function Home() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 items-center">
           {/* Who we are Section - Left */}
           <div className="space-y-8">
-            <h2 className="text-4xl sm:text-5xl font-bold text-gray-800 tracking-tight">Who we are</h2>
+            <h2 className="text-4xl sm:text-5xl font-bold text-[#06578d] tracking-tight">WHO WE ARE</h2>
             
             <div className="space-y-6 text-gray-700 leading-relaxed">
               <p className="text-base sm:text-lg font-normal">
@@ -164,7 +166,7 @@ export default function Home() {
               </p>
               
               <p className="text-base sm:text-lg font-normal">
-                <span className="font-bold text-[#003F68]">IAESTE India LC JECRC</span> is the local committee at <span className="font-bold text-[#003F68]">JECRC University</span>. We connect students with global technical internships, organise workshops and cultural events, and help you build an international network while still on campus.
+                <span className="font-bold text-[#003F68]">IAESTE India LC JECRC</span> is the local committee at <span className="font-bold text-[#003F68]">JECRC University</span>, dedicated to connecting students with global technical internships. We also organise workshops and cultural events, helping you build an international network right from campus.
               </p>
               
               <p className="text-base sm:text-lg font-normal">
@@ -173,17 +175,16 @@ export default function Home() {
             </div>
             
             {/* Single Image Display */}
-            <div className="pt-4 relative overflow-hidden rounded-lg border-4 border-[#003F68] shadow-xl w-full" style={{ minHeight: '300px', height: '400px' }}>
+            <div className="relative w-full overflow-hidden rounded-lg border-4 border-[#003F68] shadow-xl aspect-[23/16]">
               <img 
-                src={homeImage1} 
+                src={WhoWeAreIMG} 
                 alt="IAESTE LC JECRC" 
-                className="w-full h-full object-contain"
+                className="w-full h-full object-cover"
                 loading="lazy"
                 decoding="async"
               />
             </div>
-          </div>
-          
+            </div>
           {/* Why IAESTE Section - Right */}
           <div className="space-y-8">
             <div>
@@ -261,127 +262,8 @@ export default function Home() {
       </div>
 
       {/* Membership Section */}
-      <div className="bg-white pt-8 sm:pt-12 pb-4 sm:pb-6">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Header */}
-          <div className="text-center mb-8 sm:mb-10">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-800 mb-3 tracking-tight">
-              Membership
-            </h2>
-            <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto">
-              It takes 2 minutes to get yourself enrolled as a member of this prestigious organization!
-            </p>
-          </div>
-
-          {/* Membership Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto">
-            {/* INSTATION Card */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
-              className="bg-gradient-to-br from-white to-gray-50 rounded-xl p-6 sm:p-8 border-2 border-[#003F68]/10 hover:border-[#003F68]/30 transition-all duration-300"
-              style={{
-                boxShadow: '0 4px 15px -3px rgba(0, 63, 104, 0.1), 0 2px 8px -2px rgba(0, 63, 104, 0.08)',
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.boxShadow = '0 12px 30px -8px rgba(0, 63, 104, 0.25), 0 6px 15px -4px rgba(0, 63, 104, 0.2)';
-                e.currentTarget.style.transform = 'translateY(-3px)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.boxShadow = '0 4px 15px -3px rgba(0, 63, 104, 0.1), 0 2px 8px -2px rgba(0, 63, 104, 0.08)';
-                e.currentTarget.style.transform = 'translateY(0)';
-              }}
-            >
-              <div className="text-center mb-6">
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#003F68]/10 mb-4">
-                  <svg className="w-8 h-8 text-[#003F68]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                  </svg>
-                </div>
-                <h3 className="text-2xl sm:text-3xl font-bold text-[#003F68]">
-                  INSTATION
-                </h3>
-              </div>
-              <div className="space-y-5">
-                <div className="flex items-start">
-                  <svg className="w-5 h-5 text-[#003F68] mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                  </svg>
-                  <p className="text-base text-gray-700 leading-relaxed">
-                    Valid for students of <span className="font-semibold text-[#003F68]">JECRC University</span>.
-                  </p>
-                </div>
-                <div className="pt-4 border-t-2 border-[#003F68]/20">
-                  <p className="text-base text-gray-700 leading-relaxed">
-                    Access to all IAESTE programs and events.
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* OUTSTATION Card */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.4, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
-              className="bg-gradient-to-br from-white to-gray-50 rounded-xl p-6 sm:p-8 border-2 border-[#003F68]/10 hover:border-[#003F68]/30 transition-all duration-300"
-              style={{
-                boxShadow: '0 4px 15px -3px rgba(0, 63, 104, 0.1), 0 2px 8px -2px rgba(0, 63, 104, 0.08)',
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.boxShadow = '0 12px 30px -8px rgba(0, 63, 104, 0.25), 0 6px 15px -4px rgba(0, 63, 104, 0.2)';
-                e.currentTarget.style.transform = 'translateY(-3px)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.boxShadow = '0 4px 15px -3px rgba(0, 63, 104, 0.1), 0 2px 8px -2px rgba(0, 63, 104, 0.08)';
-                e.currentTarget.style.transform = 'translateY(0)';
-              }}
-            >
-              <div className="text-center mb-6">
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#003F68]/10 mb-4">
-                  <svg className="w-8 h-8 text-[#003F68]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                <h3 className="text-2xl sm:text-3xl font-bold text-[#003F68]">
-                  OUTSTATION
-                </h3>
-              </div>
-              <div className="space-y-5">
-                <div className="flex items-start">
-                  <svg className="w-5 h-5 text-[#003F68] mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                  </svg>
-                  <p className="text-base text-gray-700 leading-relaxed">
-                    Valid for students other than <span className="font-semibold text-[#003F68]">JECRC University</span>.
-                  </p>
-                </div>
-                <div className="pt-4 border-t-2 border-[#003F68]/20">
-                  <p className="text-base text-gray-700 leading-relaxed">
-                    Full access to IAESTE opportunities and resources.
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-          </div>
           
-          {/* Know More Button */}
-          <div className="flex justify-center mt-8 sm:mt-10">
-            <Link
-              to="/membership"
-              className="inline-flex items-center px-8 py-3 bg-[#003F68] text-white font-semibold rounded-lg hover:bg-[#005a8f] transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-            >
-              Know More
-              <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </Link>
-          </div>
-        </div>
-      </div>
+          <MembershipSection />
 
       {/* How to Apply Section 
        <HowToApply />
