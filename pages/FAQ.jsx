@@ -101,12 +101,14 @@ const FAQ = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6 }}
                     >
-                        <h1 className="text-4xl md:text-6xl font-black text-[#0B3D59] uppercase tracking-tighter leading-tight mb-3">
-                            Help <span className="text-[#0B3D59]">Center</span>
-                        </h1>
-                        <p className="text-[#0B3D59]/60 text-sm md:text-lg font-black uppercase tracking-[0.3em] mb-8">
-                            Legacy in every answer
-                        </p>
+                        
+                    <h1 className="text-2xl md:text-6xl font-black text-[#11577f] uppercase tracking-tighter leading-tight mb-3">
+                    Common<span className="ml-4 text-[#11577f]">FAQ's</span>
+                    </h1>
+
+                    <p className="text-[#0B3D59]/60 text-sm md:text-lg font-black uppercase tracking-[0.3em] mb-8">
+                        Legacy in every answer
+                    </p>
                     </motion.div>
 
                     {/* Search Bar Container */}

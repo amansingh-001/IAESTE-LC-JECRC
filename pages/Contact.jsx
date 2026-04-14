@@ -45,11 +45,9 @@ const Contact = () => {
         e.preventDefault();
         setIsSubmitting(true);
 
-        // Replace these with your actual Service ID, Template ID, and Public Key from EmailJS
-        // Sign up at https://www.emailjs.com/
-        const SERVICE_ID = "service_vvr4t41";
-        const TEMPLATE_ID = "template_6z7r0va";
-        const PUBLIC_KEY = "evpRcif44pGqLT8BE";
+        const SERVICE_ID = "service_75k3zje";
+        const TEMPLATE_ID = "template_cne4f3x";
+        const PUBLIC_KEY = "AHVjA0BZY1HDPxsVU";
 
         if (SERVICE_ID === "service_sandbox" || PUBLIC_KEY === "public_key_sandbox") {
             // Simulate success for demonstration/development if keys are not set

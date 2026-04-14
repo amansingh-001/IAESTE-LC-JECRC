@@ -10,8 +10,8 @@ export default function LoadingScreen({ onLoadingComplete }) {
       setIsVisible(false);
       setTimeout(() => {
         onLoadingComplete();
-      }, 1500); // Wait for zoom-out animation to complete
-    }, 2500); // Show loading screen for 2.5 seconds
+      }, 500); // Wait for zoom-out animation to complete
+    }, 1500); // Show loading screen for 1.5 seconds
 
     return () => clearTimeout(timer);
   }, [onLoadingComplete]);
@@ -25,7 +25,7 @@ export default function LoadingScreen({ onLoadingComplete }) {
           exit={{ opacity: 0 }}
           transition={{ duration: 0.3 }}
           style={{ willChange: 'opacity', transform: 'translateZ(0)' }}
-          className="fixed inset-0 bg-white flex items-center justify-center z-[9999] overflow-hidden"
+          className="fixed inset-0 bg-white flex items-center justify-center z-9999 overflow-hidden"
         >
           {/* Content with Netflix-style zoom-out exit */}
           <motion.div
@@ -60,7 +60,7 @@ export default function LoadingScreen({ onLoadingComplete }) {
                 height="96"
                 className="h-16 sm:h-20 md:h-24 w-auto mx-auto object-contain"
                 loading="eager"
-                fetchPriority="high"
+                fetchpriority="high"
               />
             </motion.div>
             

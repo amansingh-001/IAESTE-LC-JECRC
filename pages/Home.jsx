@@ -393,10 +393,10 @@ export default function Home() {
           {/* Stepper Component */}
           <Stepper
             initialStep={1}
-            onStepChange={(step) => {
-              console.log(`Step ${step}`);
-            }}
-            onFinalStepCompleted={() => console.log("All steps completed!")}
+            // onStepChange={(step) => {
+            //   console.log(`Step ${step}`);
+            // }}
+            // onFinalStepCompleted={() => console.log("All steps completed!")}
             backButtonText="Previous"
             nextButtonText="Next"
           >
@@ -430,7 +430,7 @@ export default function Home() {
                   Pay the Membership Fee
                 </h3>
                 <p className="text-xs sm:text-sm text-gray-600 leading-relaxed max-w-md mx-auto" style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>
-                  Submit the fee through our secure online payment portal. Choose between INSTATION (₹2,900) or OUTSTATION (₹2,000) membership based on your university.
+                  Submit the fee through our secure online payment portal. Choose between INSTATION or OUTSTATION membership based on your university.
                 </p>
               </div>
             </Step>
@@ -438,7 +438,7 @@ export default function Home() {
               <div className="text-center py-1">
                 <div className="flex justify-center mb-2">
                   <div className="w-12 h-12 bg-[#003F68]/10 rounded-full flex items-center justify-center">
-                    <svg className="w-6 h-6 text-[#003F68]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-6 h-6 text-[#4c6b7f]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                   </div>

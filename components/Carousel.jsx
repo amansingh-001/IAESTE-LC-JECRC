@@ -47,7 +47,7 @@ export default function Carousel({ slides = [] }) {
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
     >
-      {/* Slide Stack — height driven by the image itself */}
+      {/* Slide Stack - height driven by the image itself */}
       <div className="relative w-full">
         {slides.map((slide, index) => (
           <div
@@ -64,7 +64,7 @@ export default function Carousel({ slides = [] }) {
                 style={{ display: 'block' }}
                 loading={index === 0 ? 'eager' : 'lazy'}
                 decoding="async"
-                fetchPriority={index === 0 ? 'high' : 'auto'}
+                fetchpriority={index === 0 ? 'high' : 'auto'}
               />
             ) : (
               <div

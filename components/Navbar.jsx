@@ -313,7 +313,7 @@ export default function Navbar() {
               height="80"
               className="h-20 w-auto object-contain group-hover:scale-105 transition-all duration-300 ease-out"
               loading="eager"
-              fetchPriority="high"
+              fetchpriority="high"
             />
           </Link>
 
@@ -367,12 +367,15 @@ export default function Navbar() {
 
           {/* Login and Join Membership Buttons (Desktop) */}
           <div className="hidden md:flex items-center gap-3 ml-6 -mr-8 lg:-mr-12">
-            <Link
-              to="/login"
-              className="relative border-2 border-[#003F68] text-[#003F68] bg-transparent px-6 py-2.5 rounded-md hover:bg-[#003F68]/5 transition-all duration-300 shadow-md hover:shadow-xl font-semibold text-base tracking-wide transform hover:-translate-y-1 hover:scale-105 overflow-hidden group"
-            >
-              <span className="relative z-10">Login</span>
-            </Link>
+              <a
+                href="https://member.iaestelcjecrc.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative border-2 border-[#003F68] text-[#003F68] bg-transparent px-6 py-2.5 rounded-md hover:bg-[#003F68]/5 transition-all duration-300 shadow-md hover:shadow-xl font-semibold text-base tracking-wide transform hover:-translate-y-1 hover:scale-105 overflow-hidden group"
+              >
+                <span className="relative z-10">Login</span>
+              </a>
+          
             <Link
               to="/membership"
               className="relative bg-[#003F68] text-white px-6 py-2.5 rounded-md hover:bg-[#003F68] transition-all duration-300 shadow-md hover:shadow-xl font-semibold text-base tracking-wide transform hover:-translate-y-1 hover:scale-105 overflow-hidden group"
@@ -463,13 +466,14 @@ export default function Navbar() {
 
           {/* Login and Join Membership Buttons - Fixed at Bottom */}
           <div className="p-5 pt-3 border-t border-gray-200/80 bg-gradient-to-b from-white via-gray-50/50 to-white backdrop-blur-sm flex gap-3">
-            <Link
-              to="/login"
-              onClick={closeMobileMenu}
-              className="group relative flex-1 text-center border-2 border-[#003F68] text-[#003F68] bg-transparent px-4 py-4 rounded-xl font-bold text-base hover:bg-[#003F68]/5 active:scale-[0.98] transition-all duration-300 shadow-lg overflow-hidden"
-            >
-              <span className="relative z-10">Login</span>
-            </Link>
+            <a
+                href="https://member.iaestelcjecrc.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative border-2 border-[#003F68] text-[#003F68] bg-transparent px-6 py-2.5 rounded-md hover:bg-[#003F68]/5 transition-all duration-300 shadow-md hover:shadow-xl font-semibold text-base tracking-wide transform hover:-translate-y-1 hover:scale-105 overflow-hidden group"
+              >
+                <span className="relative z-10">Login</span>
+              </a>
             <Link
               to="/membership"
               onClick={closeMobileMenu}

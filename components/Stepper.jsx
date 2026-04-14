@@ -35,7 +35,7 @@ export default function Stepper({
         setCurrentStep(1);
         setDirection(0);
         onStepChange(1);
-      }, 1500);
+      }, 100);
     } else {
       setCurrentStep(newStep);
       setIsCompleted(false);

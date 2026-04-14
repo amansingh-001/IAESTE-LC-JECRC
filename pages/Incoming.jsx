@@ -484,7 +484,7 @@ export default function Incoming() {
         <div className="w-full bg-[#003F68] text-white rounded-2xl p-10 flex flex-col md:flex-row items-center gap-8 shadow-xl">
           <div className="flex-1">
             <h1 className="text-3xl md:text-4xl font-bold">
-              Incoming Exchange — JECRC
+              Incoming Exchange - JECRC
             </h1>
             <p className="mt-4 text-gray-200 max-w-md">
               Hosting global interns strengthens our campus and community. Explore incoming exchange statistics, records and stories.
@@ -637,7 +637,7 @@ export default function Incoming() {
       <section id="success-stories" className="max-w-7xl mx-auto mt-16 px-6 py-12">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold text-[#003F68] mb-3">Success Stories</h2>
-          <p className="text-lg text-gray-600">Incoming interns — real experiences from visiting students</p>
+          <p className="text-lg text-gray-600">Incoming interns - real experiences from visiting students</p>
         </div>
 
         <div className="relative max-w-6xl mx-auto space-y-10">

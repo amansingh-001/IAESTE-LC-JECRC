@@ -127,7 +127,7 @@ export default function Employers() {
                   : "bg-white text-[#003F68]/40 border border-[#003F68]/10 hover:bg-[#003F68]/5"
                   }`}
               >
-                {tab === 'incoming' ? 'Incoming Talents' : 'Outgoing Ambassadors'}
+                {tab === 'incoming' ? 'Incoming Interns' : 'Outgoing Interns'}
               </button>
             ))}
           </div>

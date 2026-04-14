@@ -462,21 +462,21 @@ export default function Benefits() {
           >
             {[
               { 
-                value: "25+", 
+                value: "100+", 
                 label: "Countries Connected",
                 icon: "🌍",
                 position: "top",
                 hasCounter: true
               },
               { 
-                value: "100+", 
-                label: "Students Transformed",
+                value: "90+", 
+                label: "Outgoing Students Transformed",
                 icon: "🎓",
                 position: "bottom",
                 hasCounter: true
               },
               { 
-                value: "50+", 
+                value: "220+", 
                 label: "Experiences Created",
                 icon: "✨",
                 position: "top",
@@ -547,7 +547,8 @@ export default function Benefits() {
       <section className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12 py-16 md:py-24 bg-gray-50">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#003F68] mb-6 text-left md:text-center">
-            How IAESTE Prepares You for the Global Stage
+            How IAESTE Prepares You
+            for the Global Stage
           </h2>
           <p className="text-lg text-gray-700 mb-8 text-left md:text-center">
             IAESTE helps you grow from a classroom learner into a globally ready professional.
@@ -581,7 +582,7 @@ export default function Benefits() {
 
             {/* Description */}
             <p className="text-lg md:text-xl text-gray-700 mb-8 max-w-2xl mx-auto leading-relaxed">
-              IAESTE LC JECRC is not for everyone — it's for those ready to grow, learn, and challenge themselves.
+              IAESTE LC JECRC is not for everyone - it's for those ready to grow, learn, and challenge themselves.
             </p>
 
             {/* CTA Button */}
