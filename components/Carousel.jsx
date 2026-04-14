@@ -1,117 +1,112 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 export default function Carousel({ slides = [] }) {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const touchStartX = useRef(null);
+  const touchEndX = useRef(null);
+  const MIN_SWIPE = 50;
 
-  // Auto-play carousel (only if more than one slide)
   useEffect(() => {
     if (slides.length > 1) {
       const interval = setInterval(() => {
         setCurrentSlide((prev) => (prev + 1) % slides.length);
-      }, 5000); // Change slide every 5 seconds
-
+      }, 5000);
       return () => clearInterval(interval);
     }
   }, [slides.length]);
 
-  // Go to next slide
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length);
+  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % slides.length);
+  const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  const goToSlide = (index) => setCurrentSlide(index);
+
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.changedTouches[0].clientX;
+    touchEndX.current = null;
   };
 
-  // Go to previous slide
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  const handleTouchMove = (e) => {
+    touchEndX.current = e.changedTouches[0].clientX;
   };
 
-  // Go to specific slide
-  const goToSlide = (index) => {
-    setCurrentSlide(index);
+  const handleTouchEnd = () => {
+    if (touchStartX.current === null || touchEndX.current === null) return;
+    const delta = touchStartX.current - touchEndX.current;
+    if (Math.abs(delta) >= MIN_SWIPE) {
+      delta > 0 ? nextSlide() : prevSlide();
+    }
+    touchStartX.current = null;
+    touchEndX.current = null;
   };
 
-  if (slides.length === 0) {
-    return null;
-  }
+  if (slides.length === 0) return null;
 
   return (
-    <div className="relative w-full h-[55vh] md:h-[82vh] lg:h-[88vh] overflow-hidden">
-      {/* Carousel Container */}
-      <div className="relative w-full h-full">
+    <div
+      className="relative w-full"
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+    >
+      {/* Slide Stack — height driven by the image itself */}
+      <div className="relative w-full">
         {slides.map((slide, index) => (
           <div
             key={slide.id}
-            className={`absolute inset-0 transition-opacity duration-500 ease-in-out ${
-              index === currentSlide ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'
+            className={`${index === currentSlide ? 'relative' : 'absolute inset-0 pointer-events-none'} transition-opacity duration-500 ease-in-out ${
+              index === currentSlide ? 'opacity-100 z-10' : 'opacity-0 z-0'
             }`}
-            style={{ willChange: 'opacity', transform: 'translateZ(0)' }}
           >
-            {/* Image Display - Full Width */}
-            {slide.backgroundImage && (
+            {slide.backgroundImage ? (
+              <img
+                src={slide.backgroundImage}
+                alt={slide.title || `Slide ${index + 1}`}
+                className="w-full h-auto block"
+                style={{ display: 'block' }}
+                loading={index === 0 ? 'eager' : 'lazy'}
+                decoding="async"
+                fetchPriority={index === 0 ? 'high' : 'auto'}
+              />
+            ) : (
               <div
-                className="relative w-full h-full flex items-start justify-center"
-                style={{ willChange: 'opacity', transform: 'translateZ(0)' }}
-              >
-                <img 
-                  src={slide.backgroundImage} 
-                  alt={slide.title || `Slide ${index + 1}`}
-                  className="w-full h-full object-contain md:object-cover"
-                  style={{
-                    boxShadow: '0 30px 60px -15px rgba(0, 0, 0, 0.8), 0 15px 30px -10px rgba(0, 0, 0, 0.6), 0 0 0 2px rgba(0, 0, 0, 0.2)',
-                    willChange: 'opacity',
-                    transform: 'translateZ(0)',
-                    objectPosition: 'top center'
-                  }}
-                  loading={index === 0 ? "eager" : "lazy"}
-                  decoding="async"
-                  fetchPriority={index === 0 ? "high" : "auto"}
-                />
-              </div>
-            )}
-            
-            {/* Fallback Gradient if no image */}
-            {!slide.backgroundImage && (
-              <div 
-                className="absolute inset-0"
+                className="w-full aspect-video"
                 style={{ background: slide.fallbackGradient }}
-              ></div>
+              />
             )}
           </div>
         ))}
       </div>
 
-      {/* Navigation Arrows - Hidden on mobile, visible on md and above, only show if more than one slide */}
       {slides.length > 1 && (
         <>
           <button
             onClick={prevSlide}
-            className="hidden md:flex absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 z-30 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white p-3 rounded-full transition-all duration-300 hover:scale-110 focus:outline-none shadow-lg items-center justify-center"
+            className="flex absolute left-2 sm:left-4 md:left-8 top-1/2 -translate-y-1/2 z-30 bg-white/20 hover:bg-white/30 active:bg-white/40 backdrop-blur-sm text-white p-2 sm:p-3 rounded-full transition-all duration-300 focus:outline-none shadow-lg items-center justify-center"
             aria-label="Previous slide"
           >
-            <svg className="w-6 h-6 sm:w-8 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-4 h-4 sm:w-6 sm:h-6 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
           </button>
 
           <button
             onClick={nextSlide}
-            className="hidden md:flex absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 z-30 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white p-3 rounded-full transition-all duration-300 hover:scale-110 focus:outline-none shadow-lg items-center justify-center"
+            className="flex absolute right-2 sm:right-4 md:right-8 top-1/2 -translate-y-1/2 z-30 bg-white/20 hover:bg-white/30 active:bg-white/40 backdrop-blur-sm text-white p-2 sm:p-3 rounded-full transition-all duration-300 focus:outline-none shadow-lg items-center justify-center"
             aria-label="Next slide"
           >
-            <svg className="w-6 h-6 sm:w-8 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-4 h-4 sm:w-6 sm:h-6 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
           </button>
 
-          {/* Dots Indicator - hidden on mobile */}
-          <div className="hidden md:flex absolute bottom-8 left-1/2 -translate-x-1/2 z-30 space-x-3">
+          <div className="flex absolute bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 z-30 space-x-2 sm:space-x-3">
             {slides.map((_, index) => (
               <button
                 key={index}
                 onClick={() => goToSlide(index)}
                 className={`transition-all duration-300 rounded-full focus:outline-none shadow-lg ${
                   index === currentSlide
-                    ? 'w-12 h-3 bg-white'
-                    : 'w-3 h-3 bg-white/50 hover:bg-white/75'
+                    ? 'w-8 sm:w-12 h-2 sm:h-3 bg-white'
+                    : 'w-2 sm:w-3 h-2 sm:h-3 bg-white/50 hover:bg-white/75'
                 }`}
                 aria-label={`Go to slide ${index + 1}`}
               />
@@ -120,9 +115,8 @@ export default function Carousel({ slides = [] }) {
         </>
       )}
 
-      {/* Scroll Indicator - hidden on mobile */}
-      <div className="hidden md:block absolute bottom-4 left-1/2 -translate-x-1/2 z-30 animate-bounce">
-        <svg className="w-6 h-6 text-white/70 drop-shadow-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <div className="absolute bottom-1 left-1/2 -translate-x-1/2 z-30 animate-bounce">
+        <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white/70 drop-shadow-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
         </svg>
       </div>
