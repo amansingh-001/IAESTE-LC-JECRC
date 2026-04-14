@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Carousel from '../components/Carousel';
 import StatisticsCharts from '../components/StatisticsCharts';
-import HowToApply from '../components/HowToApply';
 import Stepper, { Step } from '../components/Stepper';
 import homeImage1 from '../src/assets/images/home1.avif';
 import homeImage2 from '../src/assets/images/home2.avif';
@@ -383,9 +382,7 @@ export default function Home() {
         </div>
       </div>
 
-      {/* How to Apply Section 
-       <HowToApply />
-      */}
+      {/* How to Apply Section */}
       
       <div className="bg-gradient-to-br from-gray-50 via-white to-gray-50 py-6 sm:py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

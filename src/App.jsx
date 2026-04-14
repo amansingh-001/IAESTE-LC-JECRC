@@ -9,7 +9,6 @@ const Home = lazy(() => import('../pages/Home'));
 const About = lazy(() => import('../pages/About'));
 const Benefits = lazy(() => import('../pages/Benefits'));
 const Membership = lazy(() => import('../pages/Membership'));
-// const Login = lazy(() => import('../pages/Login'));
 const Register = lazy(() => import('../pages/Register'));
 const Department = lazy(() => import('../pages/Department'));
 const Team = lazy(() => import('../pages/Team'));
@@ -79,7 +78,6 @@ export default function App() {
               <Route path="/about" element={<About />} />
               <Route path="/benefits" element={<Benefits />} />
               <Route path="/membership" element={<Membership />} />
-              {/* <Route path="/login" element={<Login />} /> */}
               <Route path="/register" element={<Register />} />
               <Route path="/department" element={<Department />} />
               <Route path="/team" element={<Team />} />
