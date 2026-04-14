@@ -63,42 +63,6 @@ function Counter({ target = 0, duration = 1200, play = true, className = "" }) {
 }
 
 export default function Outgoing() {
-  // SEO: Update document title and meta tags
-  useEffect(() => {
-    document.title = "Outgoing Exchange Programs | IAESTE LC JECRC";
-    
-    // Update or create meta description
-    let metaDescription = document.querySelector('meta[name="description"]');
-    if (!metaDescription) {
-      metaDescription = document.createElement('meta');
-      metaDescription.setAttribute('name', 'description');
-      document.head.appendChild(metaDescription);
-    }
-    metaDescription.setAttribute('content', 'Explore IAESTE outgoing exchange programs at JECRC. View statistics, success stories, and international internship opportunities for students.');
-    
-    // Update or create Open Graph tags
-    const ogTags = {
-      'og:title': 'Outgoing Exchange Programs | IAESTE LC JECRC',
-      'og:description': 'Explore IAESTE outgoing exchange programs at JECRC. View statistics, success stories, and international internship opportunities for students.',
-      'og:type': 'website',
-      'og:url': window.location.href
-    };
-    
-    Object.entries(ogTags).forEach(([property, content]) => {
-      let tag = document.querySelector(`meta[property="${property}"]`);
-      if (!tag) {
-        tag = document.createElement('meta');
-        tag.setAttribute('property', property);
-        document.head.appendChild(tag);
-      }
-      tag.setAttribute('content', content);
-    });
-
-    // Cleanup function to restore original title if needed
-    return () => {
-      document.title = 'iaestelcjecrc.com';
-    };
-  }, []);
 
   const successStories = [
     {
@@ -215,7 +179,7 @@ export default function Outgoing() {
       try {
         chartObserver.disconnect();
       } catch (err) {
-        console.log("Error",err)
+        // Silent error for observer disconnect
       }
     };
   }, []);

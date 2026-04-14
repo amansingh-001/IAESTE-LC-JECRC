@@ -52,7 +52,6 @@ const Contact = () => {
         if (SERVICE_ID === "service_sandbox" || PUBLIC_KEY === "public_key_sandbox") {
             // Simulate success for demonstration/development if keys are not set
             setTimeout(() => {
-                console.log("Simulating EmailJS send with data:", form);
                 alert("Message sent! (Simulation Mode: Update EmailJS keys in Contact.jsx to send real emails)");
                 setForm({ name: "", email: "", phone: "", message: "" });
                 setIsSubmitting(false);
@@ -62,11 +61,9 @@ const Contact = () => {
 
         emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, PUBLIC_KEY)
             .then((result) => {
-                console.log(result.text);
                 alert("Thank you! Your message has been sent.");
                 setForm({ name: "", email: "", phone: "", message: "" });
             }, (error) => {
-                console.log(error.text);
                 alert("Failed to send message. Please check your internet connection or EmailJS configuration.");
             })
             .finally(() => {

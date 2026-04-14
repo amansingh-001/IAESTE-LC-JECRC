@@ -7,11 +7,10 @@
   color: #1a1a1a;
   background-color: #ffffff;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+/* body styles */
 
 body {
   margin: 0;
@@ -133,4 +132,9 @@ body {
 
 .nav-link:hover::after {
   width: 100%;
+}
+/* Performance optimizations: content-visibility for off-screen sections */
+section:not(:first-of-type) {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 500px; /* Placeholder size for layout stability */
 }

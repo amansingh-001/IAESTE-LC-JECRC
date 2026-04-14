@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom';
 
 export default function MembershipSection() {
   return (
-    <section className="bg-white py-12 sm:py-16 lg:py-20">
+    <section className="bg-white py-12 sm:py-16 lg:py-20" aria-labelledby="membership-section-title">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10 sm:mb-12">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-800 mb-4">
+          <h2 id="membership-section-title" className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-800 mb-4 tracking-tight">
             Membership
           </h2>
-          <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto font-medium">
             Choose the membership plan that suits you and join our global community.
           </p>
         </div>
