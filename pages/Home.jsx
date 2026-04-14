@@ -281,9 +281,7 @@ export default function Home() {
           <MembershipSection />
       
 
-      {/* How to Apply Section 
-       <HowToApply />
-      */}
+      {/* How to Apply Section */}
       
       <section className="bg-gradient-to-br from-gray-50 via-white to-gray-50 py-6 sm:py-8" aria-labelledby="apply-title">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
