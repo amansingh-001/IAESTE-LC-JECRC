@@ -263,7 +263,7 @@ export default function Incoming() {
     const successStories = [
     {
       id: 1,
-      name: "Adnan Ayman",
+      name: "Adnan Ayman Adnan Abutahnat",
       location: "Palestine",
       testimonial:
         "India was not just a training destination for me, but a journey that changed my life. Living far from home taught me independence, patience, and the ability to face challenges with confidence. Adapting to a new culture and environment was not always easy, but it gave me the courage to grow stronger.",
@@ -399,7 +399,9 @@ export default function Incoming() {
         labels: {
           color: "#003F68",
           font: { size: 13, weight: "600" },
-          padding: 12
+          padding: 12,
+          usePointStyle: true,
+          pointStyle: "circle"
         }
       },
       tooltip: {

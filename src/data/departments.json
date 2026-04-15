@@ -1,7 +1,7 @@
 [
   {
     "id": "hr",
-   "title": "Human Resources",
+   "title": "Human Resources (HR)",
    "summary": "Building a motivated, well-supported and recognised IAESTE family.",
     "description": "The Human Resources Department plans and executes various activities including workshops, programs, networking events, and social gatherings to foster community engagement."
   },
@@ -15,12 +15,12 @@
     "id": "incoming",
    "title": "Incoming Exchange",
    "summary": "Welcoming international interns and curating their complete experience.",
-    "description": "The Incoming Department coordinates with international students, handles their accommodation and documentation, organizes cultural activities, and ensures a smooth experience during their stay in India."
+    "description": "The Incoming Exchange Department coordinates with international students, handles their accommodation, organizes cultural activities, and ensures a smooth experience during their stay in India."
   },
   {
     "id": "outgoing",
    "title": "Outgoing Exchange",
-   "summary": "Guiding JECRC students to international internships worldwide.",
+   "summary": "Guiding LC JECRC students to international internships worldwide.",
     "description": "The Outgoing Department assists students in discovering global internship opportunities, managing applications, and providing support throughout the entire process from application to placement."
   },
   
@@ -32,7 +32,7 @@
   },
    {
     "id": "public-relations",
-   "title": "Public Relations",
+   "title": "Public Relations (PR)",
    "summary": "Telling IAESTE's story through campaigns, content and design.",
     "description": "The Public Relations Department is responsible for creating awareness about IAESTE programs, managing social media presence, organizing promotional events, and building the brand identity of the local committee."
   },

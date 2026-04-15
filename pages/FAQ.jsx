@@ -52,7 +52,7 @@ const faqsData = [
     {
         category: "General",
         question: "What fields are IAESTE internships available in?",
-        answer: "IAESTE offers internships across engineering, IT, architecture, applied sciences, and other technical disciplines. Students can explore diverse opportunities aligned with their academic background and career goals."
+        answer: "IAESTE offers internships across engineering, IT, architecture, applied sciences, management, mathematics, physics, and other technical disciplines. Students can explore diverse opportunities aligned with their academic background and career goals."
     },
     {
         category: "Membership",

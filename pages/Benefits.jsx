@@ -582,7 +582,7 @@ export default function Benefits() {
 
             {/* Description */}
             <p className="text-lg md:text-xl text-gray-700 mb-8 max-w-2xl mx-auto leading-relaxed">
-              IAESTE LC JECRC is not for everyone - it's for those ready to grow, learn, and challenge themselves.
+              IAESTE LC JECRC is for everyone - especially those who are ready to grow, learn, and challenge themselves.
             </p>
 
             {/* CTA Button */}
