@@ -1,5 +1,5 @@
 import React, { useState, useEffect, Suspense, lazy } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import LoadingScreen from '../components/LoadingScreen';
@@ -9,8 +9,6 @@ const Home = lazy(() => import('../pages/Home'));
 const About = lazy(() => import('../pages/About'));
 const Benefits = lazy(() => import('../pages/Benefits'));
 const Membership = lazy(() => import('../pages/Membership'));
-const Login = lazy(() => import('../pages/Login'));
-const Register = lazy(() => import('../pages/Register'));
 const Department = lazy(() => import('../pages/Department'));
 const Team = lazy(() => import('../pages/Team'));
 const Join = lazy(() => import('../pages/Join'));
@@ -79,8 +77,8 @@ export default function App() {
               <Route path="/about" element={<About />} />
               <Route path="/benefits" element={<Benefits />} />
               <Route path="/membership" element={<Membership />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} />
+              <Route path="/login" element={<Navigate to="/" replace />} />
+              <Route path="/register" element={<Navigate to="/" replace />} />
               <Route path="/department" element={<Department />} />
               <Route path="/team" element={<Team />} />
               <Route path="/join" element={<Join />} />

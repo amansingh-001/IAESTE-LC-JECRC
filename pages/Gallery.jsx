@@ -13,15 +13,15 @@ const imageModules = import.meta.glob("../src/assets/images/**/*.{jpg,jpeg,png,J
 // --- Mappings for better display names and drive links ---
 const NAME_MAP = {
     'Membership_Drive': 'Membership Drive 2025',
-    'Rythm_2026': 'Rhythm 2026',
+    'Rhythm 2026': 'Rhythm 2026',
     'Womens_Day': "Women's Day 2025",
     'IAESTE X Zarurat': 'IAESTE X Zarurat',
-    'Faliciatation Ceremony': 'Felicitation Ceremony 2025',
+    'Felicitation Ceremony': 'Felicitation Ceremony 2025',
     'Trips': 'Trips & Fun',
     'Dinner': 'Events & Culture',
     'Induction': 'Member Induction 2025-26',
-    'Aarunaya': 'Aarunya 2025',
-    'Rythm 2025': 'Rhythm 2025',
+    'Aarunya': 'Aarunya 2025',
+    'Rhythm 2025': 'Rhythm 2025',
     'Rakhi': 'Rakhi Celebration 2025',
     'Orientation': 'Orientation 2025',
     'Admin Session': 'Admin Session',
@@ -29,7 +29,7 @@ const NAME_MAP = {
 };
 
 const DRIVE_LINKS = {
-    'Rythm_2026': 'https://drive.google.com/drive/folders/1RYTHM2026_PLACEHOLDER',
+    'Rhythm 2026': 'https://drive.google.com/drive/folders/1RYTHM2026_PLACEHOLDER',
     'Membership_Drive': 'https://drive.google.com/drive/folders/MEMBER_DRIVE_PLACEHOLDER',
     'Dinner': 'https://drive.google.com/drive/folders/EVENTS_CULTURE_PLACEHOLDER',
 };
@@ -44,8 +44,24 @@ const splitEventNameAndYear = (name) => {
 
 const CategoryCard = ({ category, onSelect }) => {
     const { eventName, year } = splitEventNameAndYear(category.name);
-    const isFelicitationCard = category.id === "Faliciatation Ceremony";
-    const titleSizeClass = isFelicitationCard ? "text-lg md:text-2xl" : "text-xl md:text-3xl";
+    const longTitleCards = [
+        "Dinner",
+        "Trips",
+        "Felicitation Ceremony",
+        "IAESTE X Zarurat",
+        "Membership_Drive",
+        "Womens_Day",
+        "Rakhi",
+        "Orientation",
+        "Induction",
+        "Admin Session",
+    ];
+
+    const isLongTitleCard = longTitleCards.includes(category.id);
+    const titleSizeClass = isLongTitleCard ? "text-base md:text-2xl" : "text-xl md:text-3xl";
+    const titleWidthClass = isLongTitleCard
+        ? "max-w-[250px] md:max-w-[420px] group-hover:max-w-[94%]"
+        : "max-w-[270px] md:max-w-[420px] group-hover:max-w-[82%]";
 
     return (
         <motion.div
@@ -75,9 +91,9 @@ const CategoryCard = ({ category, onSelect }) => {
 
             <div className="absolute bottom-0 left-0 w-full p-6 md:p-10 flex flex-col justify-end items-start text-white z-10">
                 <h2
-                    className={`font-black uppercase tracking-tight transition-all duration-500 leading-[0.95] drop-shadow-2xl md:-rotate-90 md:origin-bottom-left md:translate-x-10 md:-translate-y-10 group-hover:rotate-0 group-hover:translate-x-0 group-hover:translate-y-0 whitespace-nowrap group-hover:whitespace-normal wrap-break-word overflow-hidden text-ellipsis max-w-[270px] md:max-w-[420px] group-hover:max-w-[82%] ${titleSizeClass}`}
+                    className={`font-black uppercase tracking-tight transition-all duration-500 leading-[0.95] drop-shadow-2xl md:-rotate-90 md:origin-bottom-left md:translate-x-10 md:-translate-y-10 group-hover:rotate-0 group-hover:translate-x-0 group-hover:translate-y-0 whitespace-nowrap group-hover:whitespace-normal break-normal text-ellipsis ${isLongTitleCard ? "overflow-visible group-hover:wrap-break-word" : "overflow-hidden"} ${titleWidthClass} ${titleSizeClass}`}
                 >
-                    <span>{eventName}</span>
+                    <span className={isLongTitleCard ? "inline" : "inline-block whitespace-nowrap"}>{eventName}</span>
                     {year && <span className="ml-2 inline-block whitespace-nowrap text-[0.78em] md:text-[0.75em] font-extrabold tracking-normal">{year}</span>}
                 </h2>
 
@@ -170,7 +186,7 @@ export default function Gallery() {
             const fileName = parts[parts.length - 1];
 
             // Ignore root images for the dynamic menu
-            if (folder === 'images') return;
+            if (folder === 'images' || folder === 'Team') return;
 
             if (!data[folder]) {
                 data[folder] = {
@@ -179,13 +195,27 @@ export default function Gallery() {
                     image: module.default,
                     items: [],
                     driveLink: DRIVE_LINKS[folder] || null,
-                    isNew: folder.toLowerCase().includes('2026') || folder.toLowerCase().includes('induction') || folder.toLowerCase().includes('aarunaya')
+                    isNew: folder.toLowerCase().includes('2026') || folder.toLowerCase().includes('induction') || folder.toLowerCase().includes('aarunya')
                 };
             }
+
+            if (folder === 'Trips' && /^Trip\s*10\b/i.test(fileName)) {
+                data[folder].image = module.default;
+            }
+
+            if (folder === 'Membership_Drive' && /^membership\s*4\b/i.test(fileName)) {
+                data[folder].image = module.default;
+            }
+
             data[folder].items.push({
                 image: module.default,
-                title: fileName.replace(/_/g, ' ').replace(/-/g, ' ').split('.')[0]
+                title: fileName.replace(/_/g, ' ').replace(/-/g, ' ').split('.')[0],
+                sortKey: fileName
             });
+        });
+
+        Object.values(data).forEach((folderData) => {
+            folderData.items.sort((a, b) => a.sortKey.localeCompare(b.sortKey, undefined, { numeric: true, sensitivity: 'base' }));
         });
 
         // Group sorting: New ones first, then alphabetical

@@ -300,7 +300,7 @@ export default function StatisticsCharts() {
     '2019-20': ['Turkey'],
     '2020-21': ['Bangladesh'],
     '2021-22': ['Saudi Arabia'],
-    '2022-23': ['Various'],
+    '2022-23': ['Czech Republic', 'Iran', 'Tanzania', 'Hong Kong'],
     '2023-24': ['UAE', 'Tanzania', 'Iran', 'Kenya', 'Canada', 'Oman'],
     '2024-25': ['Vietnam', 'Iran', 'Tanzania', 'Brazil', 'Oman', 'Kazakhstan', 'Ghana'],
   };

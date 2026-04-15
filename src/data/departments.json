@@ -15,7 +15,7 @@
     "id": "incoming",
    "title": "Incoming Exchange",
    "summary": "Welcoming international interns and curating their complete experience.",
-    "description": "The Incoming Department coordinates with international students, handles their accommodation, organizes cultural activities, and ensures a smooth experience during their stay in India."
+    "description": "The Incoming Department coordinates with international students, handles their accommodation and documentation, organizes cultural activities, and ensures a smooth experience during their stay in India."
   },
   {
     "id": "outgoing",
@@ -28,7 +28,7 @@
     "id": "Admin",
    "title": "Administration",
    "summary": "Keeping offers, records and processes accurate, compliant and on-time.",
-    "description": "The Adminstration Department provides crucial support for applications, passport processing, and all necessary paperwork required for international travel and internships."
+    "description": "The Adminstration Department provides crucial support for applications, internship offer posting, and all necessary paperwork required for international travel and internships."
   },
    {
     "id": "public-relations",
