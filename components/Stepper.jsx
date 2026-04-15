@@ -35,7 +35,7 @@ export default function Stepper({
         setCurrentStep(1);
         setDirection(0);
         onStepChange(1);
-      }, 1500);
+      }, 100);
     } else {
       setCurrentStep(newStep);
       setIsCompleted(false);
@@ -199,10 +199,6 @@ const stepVariants = {
     opacity: 0
   })
 };
-
-export function Step({ children }) {
-  return <div>{children}</div>;
-}
 
 function StepIndicator({ step, currentStep, onClickStep, disableStepIndicators }) {
   const status = currentStep === step ? 'active' : currentStep < step ? 'inactive' : 'complete';

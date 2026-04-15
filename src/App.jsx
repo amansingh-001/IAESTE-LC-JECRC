@@ -3,6 +3,8 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import LoadingScreen from '../components/LoadingScreen';
+import SEOHead from '../components/SEOHead';
+import ScrollToTop from '../components/ScrollToTop'
 
 // Lazy load heavy components for better code splitting
 const Home = lazy(() => import('../pages/Home'));
@@ -29,36 +31,10 @@ const PageLoader = () => (
 );
 
 export default function App() {
-  // Check if page was restored from bfcache
-  const [isLoading, setIsLoading] = useState(() => {
-    // Skip loading screen if restored from bfcache
-    return !window.performance?.getEntriesByType('navigation')[0]?.type?.includes('back_forward');
-  });
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Handle page restoration from bfcache
-    const handlePageShow = (e) => {
-      if (e.persisted) {
-        // Page was restored from bfcache, skip loading screen
-        setIsLoading(false);
-      }
-    };
-
-    // Handle page unload - don't prevent bfcache
-    const handlePageHide = (e) => {
-      // Allow page to be cached
-      if (!e.persisted) {
-        // Page is being unloaded normally
-      }
-    };
-
-    window.addEventListener('pageshow', handlePageShow);
-    window.addEventListener('pagehide', handlePageHide);
-
-    return () => {
-      window.removeEventListener('pageshow', handlePageShow);
-      window.removeEventListener('pagehide', handlePageHide);
-    };
+    // Original loading logic (if any specific one was there, else just the completion)
   }, []);
 
   const handleLoadingComplete = () => {
@@ -69,31 +45,35 @@ export default function App() {
     <>
       {isLoading && <LoadingScreen onLoadingComplete={handleLoadingComplete} />}
       {!isLoading && (
-        <>
+        <div className="flex flex-col min-h-screen">
+          <SEOHead />
           <Navbar />
-          <Suspense fallback={<PageLoader />}>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/benefits" element={<Benefits />} />
-              <Route path="/membership" element={<Membership />} />
-              <Route path="/login" element={<Navigate to="/" replace />} />
-              <Route path="/register" element={<Navigate to="/" replace />} />
-              <Route path="/department" element={<Department />} />
-              <Route path="/team" element={<Team />} />
-              <Route path="/join" element={<Join />} />
-              <Route path="/brochure" element={<Brochure />} />
-              <Route path="/handbook" element={<Handbook />} />
-              <Route path="/employers" element={<Employers />} />
-              <Route path="/testimonials/outgoing" element={<Outgoing />} />
-              <Route path="/testimonials/incoming" element={<Incoming />} />
-              <Route path="/gallery" element={<Gallery />} />
-              <Route path="/faq" element={<FAQ />} />
-              <Route path="/contact" element={<Contact />} />
-            </Routes>
-          </Suspense>
+          <div id="main-content" className="grow">
+            <Suspense fallback={<PageLoader />}>
+              <ScrollToTop />
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/benefits" element={<Benefits />} />
+                <Route path="/membership" element={<Membership />} />
+                <Route path="/login" element={<Navigate to="/" replace />} />
+                <Route path="/register" element={<Navigate to="/" replace />} />
+                <Route path="/department" element={<Department />} />
+                <Route path="/team" element={<Team />} />
+                <Route path="/join" element={<Join />} />
+                <Route path="/brochure" element={<Brochure />} />
+                <Route path="/handbook" element={<Handbook />} />
+                <Route path="/employers" element={<Employers />} />
+                <Route path="/testimonials/outgoing" element={<Outgoing />} />
+                <Route path="/testimonials/incoming" element={<Incoming />} />
+                <Route path="/gallery" element={<Gallery />} />
+                <Route path="/faq" element={<FAQ />} />
+                <Route path="/contact" element={<Contact />} />
+              </Routes>
+            </Suspense>
+          </div>
           <Footer />
-        </>
+        </div>
       )}
     </>
   );

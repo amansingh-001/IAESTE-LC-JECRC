@@ -289,53 +289,6 @@ export default function StatisticsCharts() {
     ...lineOptions
   }), [lineOptions]);
 
-  // Country data for each year
-  const outgoingCountries = {
-    '2013-14': ['Czech Republic', 'Bosnia'],
-    '2014-15': ['Iran', 'Lebanon', 'Oman'],
-    '2015-16': ['Germany', 'Iran'],
-    '2016-17': ['Germany', 'Nepal', 'Kenya', 'Poland', 'Belgium', 'Czech Republic'],
-    '2017-18': ['Poland', 'Vietnam', 'Kazakhstan', 'Turkey', 'Portugal'],
-    '2018-19': ['Nepal', 'Germany', 'Thailand', 'Brazil', 'Poland', 'Turkey'],
-    '2019-20': ['Turkey'],
-    '2020-21': ['Bangladesh'],
-    '2021-22': ['Saudi Arabia'],
-    '2022-23': ['Czech Republic', 'Iran', 'Tanzania', 'Hong Kong'],
-    '2023-24': ['UAE', 'Tanzania', 'Iran', 'Kenya', 'Canada', 'Oman'],
-    '2024-25': ['Vietnam', 'Iran', 'Tanzania', 'Brazil', 'Oman', 'Kazakhstan', 'Ghana'],
-  };
-
-  const incomingCountries = {
-    '2013-14': [],
-    '2014-15': ['Germany', 'Argentina', 'Tunisia', 'Turkey', 'Croatia', 'Oman', 'Thailand'],
-    '2015-16': ['USA', 'Croatia', 'Belarus', 'Norway', 'Hungary', 'Germany'],
-    '2016-17': ['UK', 'Spain', 'Indonesia', 'Greece', 'Kenya', 'Czech Republic', 'Vietnam', 'Saudi Arabia', 'Poland', 'Belgium', 'Thailand', 'Slovak Republic', 'Colombia'],
-    '2017-18': ['Germany', 'Tunisia', 'Nepal', 'Norway', 'Oman', 'Indonesia', 'Nigeria', 'Poland', 'Turkey', 'Slovakia', 'Belarus', 'Austria', 'Belgium', 'Vietnam', 'Ireland', 'Hungary'],
-    '2018-19': ['Spain', 'Argentina', 'Brazil', 'Czech Republic', 'Iran', 'Poland', 'Tunisia', 'Thailand', 'Colombia', 'Germany', 'UK', 'Serbia', 'Turkey'],
-    '2019-20': ['Bolivia', 'Colombia', 'Peru'],
-    '2020-21': ['Bangladesh', 'Yemen'],
-    '2021-22': ['Vietnam', 'Ghana'],
-    '2022-23': ['Iran'],
-    '2023-24': ['Tunisia', 'Ghana', 'Tanzania', 'Iran', 'Palestine', 'Belarus'],
-    '2024-25': ['Mexico', 'Canada', 'Austria', 'Norway', 'Czech Republic', 'Palestine', 'Tunisia', 'Jordan', 'Spain', 'Iran', 'Bangladesh'],
-  };
-
-  // Legend items - starting from 2014-15
-  const legendItems = [
-    { year: '2013-14', color: colors['2013-14'] },
-    { year: '2014-15', color: colors['2014-15'] },
-    { year: '2015-16', color: colors['2015-16'] },
-    { year: '2016-17', color: colors['2016-17'] },
-    { year: '2017-18', color: colors['2017-18'] },
-    { year: '2018-19', color: colors['2018-19'] },
-    { year: '2019-20', color: colors['2019-20'] },
-    { year: '2020-21', color: colors['2020-21'] },
-    { year: '2021-22', color: colors['2021-22'] },
-    { year: '2022-23', color: colors['2022-23'] },
-    { year: '2023-24', color: colors['2023-24'] },
-    { year: '2024-25', color: colors['2024-25'] },
-  ];
-
   return (
     <div className="bg-gradient-to-br from-gray-50 to-white pt-4 sm:pt-6 pb-8 sm:pb-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
