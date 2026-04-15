@@ -8,7 +8,7 @@ export default function Employers() {
   const incomingTestimonials = [
     {
       id: 1,
-      name: "Adnan Ayman",
+      name: "Adnan Ayman Adnan Abutahnat",
       location: "Palestine",
       testimonial: "India was not just a training destination for me, but a journey that changed my life. Living far from home taught me independence, patience, and the ability to face challenges with confidence.",
       image: "https://www.iaestelcjecrc.com/assets/img/avatars/Adnan1.jpeg"
@@ -197,7 +197,7 @@ export default function Employers() {
                 transition={{ delay: i * 0.1 }}
                 className="p-10 rounded-[3rem] bg-white border-2 border-gray-50 hover:border-blue-100 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group"
               >
-                <div className="text-6xl font-black text-[#003F68]/5 group-hover:text-blue-500/10 transition-colors mb-4">{feature.val}</div>
+                <div className="text-6xl font-black text-blue-400 border-gray-50 group-hover:text-black transition-colors mb-4">{feature.val}</div>
                 <h3 className="text-xl font-black text-[#003F68] uppercase tracking-tight mb-3">{feature.label}</h3>
                 <p className="text-gray-400 font-bold leading-relaxed">{feature.desc}</p>
               </motion.div>

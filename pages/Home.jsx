@@ -392,7 +392,7 @@ export default function Home() {
             {[
               {
                 id: 1,
-                name: "Adnan Ayman",
+                name: "Adnan Ayman Adnan Abutahnat",
                 location: "Palestine",
                 testimonial: "India was not just a training destination for me, but a journey that changed my life. Living far from home taught me independence, patience, and the ability to face challenges with confidence.",
                 image: "https://www.iaestelcjecrc.com/assets/img/avatars/Adnan1.jpeg",

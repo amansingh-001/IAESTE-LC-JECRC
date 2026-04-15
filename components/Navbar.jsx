@@ -348,17 +348,17 @@ export default function Navbar() {
               isOpen={departmentDropdown}
               setIsOpen={setDepartmentDropdown}
               timeoutRef={departmentTimeoutRef}
-              buttonLabel="Departments"
+              buttonLabel="Team"
             >
               <DropdownLink to="/department">Departments</DropdownLink>
-              <DropdownLink to="/team">Team</DropdownLink>
+              <DropdownLink to="/team"> Core Team</DropdownLink>
             </DesktopDropdown>
 
             <DesktopDropdown
               isOpen={statsDropdown}
               setIsOpen={setStatsDropdown}
               timeoutRef={statsTimeoutRef}
-              buttonLabel="Stats"
+              buttonLabel="Statistics"
             >
               <DropdownLink to="/testimonials/outgoing">Outgoing</DropdownLink>
               <DropdownLink to="/testimonials/incoming">Incoming</DropdownLink>

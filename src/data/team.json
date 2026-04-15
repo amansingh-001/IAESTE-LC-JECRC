@@ -32,7 +32,7 @@
   {
     "id": "m10",
     "name": "Devansh Gupta",
-    "role": "Head , Human Resource  ",
+    "role": "Head, Human Resource  ",
     
     "img": "/assets/images/imgv3.jpg"
   },
@@ -46,47 +46,47 @@
   {
     "id": "m9",
     "name": "Vikram Saini",
-    "role": "Head , Information Technology & Data Analytics",
+    "role": "Head, Information Technology & Data Analytics",
     
     "img": "/assets/images/imgv7.jpg"
   },
   {
     "id": "m4",
     "name": "Aarna Modi",
-    "role": "Head , Incoming Exchange",
+    "role": "Head, Incoming Exchange",
     
     "img": "/assets/images/imgv5.jpg"
   },
   {
     "id": "Incoming & IT-DA Deputy Head",
     "name": "Pratham Jain",
-    "role": "Deputy Head , Incoming Exchange and Information Technology & Data Analytics",
+    "role": "Deputy Head, Incoming Exchange and Information Technology & Data Analytics",
     "img": "/assets/images/imgv6.jpg"
   },
    {
     "id": "m5",
     "name": "Ishita Ahluwalia",
-    "role": "Head , Public Relations ",
+    "role": "Head, Public Relations ",
    
     "img": "/assets/images/imgv9.jpg"
   },
   {
     "id": "m11",
     "name": "Palak Kulshrestha",
-    "role": "Deputy Head , Public Relations ",
+    "role": "Deputy Head, Public Relations ",
     "img": "/assets/images/imgv12.jpg"
   },
   {
     "id": "m8",
     "name": "Samyak Jain",
-    "role": "Head , Administration ",
+    "role": "Head, Administration ",
     
     "img": "/assets/images/imgv8.jpg"
   },
   {
     "id": "m3",
     "name": "Kanishka Nama",
-    "role": "Head , Outgoing Exchange",
+    "role": "Head, Outgoing Exchange",
     
     "img": "/assets/images/imgv15.jpg"
   },
@@ -100,7 +100,7 @@
     "id": "m12",
     "name": "Jatin Mishra",
     
-    "role": "Head , Corporate Relations & Alumni ",
+    "role": "Head, Corporate Relations & Alumni ",
     "img": "/assets/images/imgv10.jpg"
   }
   

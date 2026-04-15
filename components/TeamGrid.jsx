@@ -72,7 +72,7 @@ export default function TeamGrid() {
                 {advisor.role}
               </p>
               {advisor.bio && (
-                <p className="text-gray-700 leading-relaxed text-base sm:text-lg">
+                <p className="text-gray-700 leading-relaxed text-base text-justify sm:text-lg">
                   {advisor.bio}
                 </p>
               )}
