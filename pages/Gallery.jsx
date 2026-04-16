@@ -184,6 +184,11 @@ const MasonryGrid = ({ items }) => {
 export default function Gallery() {
     const [selectedCategory, setSelectedCategory] = useState(null);
 
+    const handleSelectCategory = (category) => {
+        window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+        setSelectedCategory(category);
+    };
+
     // Group images dynamicly
     const categories = useMemo(() => {
         const data = {};
@@ -271,7 +276,7 @@ export default function Gallery() {
                                     <CategoryCard
                                         key={cat.id}
                                         category={cat}
-                                        onSelect={setSelectedCategory}
+                                        onSelect={handleSelectCategory}
                                     />
                                 ))}
                             </div>
