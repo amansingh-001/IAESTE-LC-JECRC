@@ -410,7 +410,7 @@ export default function Navbar() {
 
       {/* Mobile Slide-in Menu */}
       <div id="mobile-menu" className={`md:hidden fixed top-20 right-0 h-[calc(100vh-5rem)] w-80 max-w-[85vw] bg-white shadow-2xl z-50 transform transition-transform duration-300 ease-out ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
-        }`}>
+        }`} style={{ height: 'calc(100dvh - 5rem)' }}>
         <div className="flex flex-col h-full overflow-y-auto bg-gradient-to-b from-white via-gray-50/30 to-white">
           <div className="flex-1 px-3 py-6">
             <MobileNavLink
@@ -468,7 +468,7 @@ export default function Navbar() {
           </div>
 
           {/* Login and Join Membership Buttons - Fixed at Bottom */}
-          <div className="p-5 pt-3 border-t border-gray-200/80 bg-gradient-to-b from-white via-gray-50/50 to-white backdrop-blur-sm flex gap-3">
+          <div className="p-5 pt-3 border-t border-gray-200/80 bg-gradient-to-b from-white via-gray-50/50 to-white backdrop-blur-sm flex gap-3" style={{ paddingBottom: 'calc(1.25rem + env(safe-area-inset-bottom))' }}>
             <a
                 href="https://member.iaestelcjecrc.com/"
                 target="_blank"

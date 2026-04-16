@@ -1,8 +1,8 @@
 // src/pages/Gallery.jsx
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import OpenInNewIcon from "@mui/icons-material/OpenInNew";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 
 /**
  * Dynamic scan for images from the assets folder.
@@ -10,7 +10,7 @@ import OpenInNewIcon from "@mui/icons-material/OpenInNew";
  */
 const imageModules = import.meta.glob("../src/assets/images/**/*.{jpg,jpeg,png,JPG,JPEG,PNG,webp,svg,avif,AVIF}", { eager: true });
 
-// --- Mappings for better display names and drive links ---
+// --- Mappings for better display names ---
 const NAME_MAP = {
     'Membership_Drive': 'Membership Drive 2025',
     'Rhythm 2026': 'Rhythm 2026',
@@ -26,12 +26,6 @@ const NAME_MAP = {
     'Orientation': 'Orientation 2025',
     'Admin Session': 'Admin Session',
     'Team': 'IAESTE Team'
-};
-
-const DRIVE_LINKS = {
-    'Rhythm 2026': 'https://drive.google.com/drive/folders/1RYTHM2026_PLACEHOLDER',
-    'Membership_Drive': 'https://drive.google.com/drive/folders/MEMBER_DRIVE_PLACEHOLDER',
-    'Dinner': 'https://drive.google.com/drive/folders/EVENTS_CULTURE_PLACEHOLDER',
 };
 
 // --- Sub-components ---
@@ -108,8 +102,26 @@ const CategoryCard = ({ category, onSelect }) => {
     );
 };
 
-const MasonryGrid = ({ items, driveLink }) => {
+const MasonryGrid = ({ items }) => {
     const [displayLimit, setDisplayLimit] = useState(12);
+    const [showScrollTop, setShowScrollTop] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setShowScrollTop(window.scrollY > 350);
+        };
+
+        handleScroll();
+        window.addEventListener("scroll", handleScroll, { passive: true });
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
+
+    const scrollToTop = () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    };
 
     return (
         <div className="pb-32">
@@ -135,7 +147,7 @@ const MasonryGrid = ({ items, driveLink }) => {
                 ))}
             </div>
 
-            <div className="flex flex-col items-center justify-center mt-12 mb-24 px-4 gap-8">
+            <div className="flex items-center justify-center mt-12 mb-24 px-4">
                 {items.length > displayLimit && (
                     <button
                         onClick={() => setDisplayLimit(prev => prev + 12)}
@@ -144,24 +156,25 @@ const MasonryGrid = ({ items, driveLink }) => {
                         LOAD MORE PHOTOS
                     </button>
                 )}
-
-                <div className="max-w-xl w-full text-center p-10 rounded-[3rem] bg-white border border-[#0B3D59]/10 shadow-2xl">
-                    <h3 className="text-3xl font-black mb-4 uppercase tracking-tighter text-[#0B3D59]">
-                        Discover More
-                    </h3>
-                    <p className="text-[#0B3D59]/70 mb-8 font-medium">
-                        We have thousands of memories captured. Explore our full high-resolution archive on Google Drive for {items.length > displayLimit ? "all the remaining" : "more"} photos.
-                    </p>
-                    <a
-                        href={driveLink || "https://drive.google.com/drive/folders/17R9d7oFEXXXXX"}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-3 px-10 py-5 bg-[#0B3D59] text-white rounded-2xl font-black text-lg shadow-xl hover:shadow-[#0B3D59]/40 hover:-translate-y-1 transition-all duration-300"
-                    >
-                        <OpenInNewIcon /> VIEW ARCHIVE ON DRIVE
-                    </a>
-                </div>
             </div>
+
+            <AnimatePresence>
+                {showScrollTop && (
+                    <motion.button
+                        type="button"
+                        aria-label="Scroll to top"
+                        onClick={scrollToTop}
+                        initial={{ opacity: 0, y: 20, scale: 0.95 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: 20, scale: 0.95 }}
+                        transition={{ duration: 0.2 }}
+                        className="fixed bottom-5 right-4 md:bottom-10 md:right-8 z-50 inline-flex items-center gap-2 px-4 md:px-5 py-3 rounded-full bg-[#0B3D59] text-white font-black text-xs md:text-sm tracking-wider shadow-xl shadow-[#0B3D59]/30 hover:bg-[#0B3D59]/90 hover:-translate-y-0.5 transition-all duration-300"
+                    >
+                        <KeyboardArrowUpIcon fontSize="small" />
+                        <span className="hidden sm:inline">TOP</span>
+                    </motion.button>
+                )}
+            </AnimatePresence>
         </div>
     );
 };
@@ -194,7 +207,6 @@ export default function Gallery() {
                     name: NAME_MAP[folder] || folder.replace(/_/g, ' ').replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase()),
                     image: module.default,
                     items: [],
-                    driveLink: DRIVE_LINKS[folder] || null,
                     isNew: folder.toLowerCase().includes('2026') || folder.toLowerCase().includes('induction') || folder.toLowerCase().includes('aarunya')
                 };
             }
@@ -294,7 +306,6 @@ export default function Gallery() {
 
                             <MasonryGrid
                                 items={selectedCategory.items}
-                                driveLink={selectedCategory.driveLink}
                             />
                         </div>
                     </motion.div>
